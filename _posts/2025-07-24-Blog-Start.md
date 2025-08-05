@@ -2,8 +2,8 @@
 layout: post
 title: Blog Start
 subtitle: 블로그 시작하는법
-categories: Archive
-tags: [Archive, Project]
+categories: git
+tags: [git, Blog]
 ---
 
 ![banner](/assets/images/banners/home.jpeg)
@@ -59,11 +59,13 @@ https://jekyllrb.com/docs/themes/#understanding-gem-based-themes
 많은 요소들이 있지만 우리는 여기서 "_post"에 있는 "예시.md" v파일에 접근하면 되고 
 파일 제목도 유의하여 "날짜-제목.md"로 작성해야된다.
 
-project1\assets\images\0724\blogtitleMeaning.png
+[적용모습](project1/assets/images/0724/blogtitleMeaning.png)
+
 
 assets 폴더는 우리가 올릴 이미지와 비디오, 스타일 등을 결정하고 업로드 할 수 있는 공간이다.
 원래는 각 웹 링크로 들어가 이미지 주소 복사 등을 통해 접근해도 되지만 
 그 파일에 대한 권한이 우리에게 없기 때문에 임의로 삭제가 되거나 찾을 수 없게 되기 때문에 저장하여 assets폴더로 접근하는 것이 더 안전하다.
+
 ---
 
 참고할 마크다운도 정리해보자.
