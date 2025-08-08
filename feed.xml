@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://naming123.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://naming123.github.io/" rel="alternate" type="text/html" /><updated>2025-08-08T07:54:51+00:00</updated><id>https://naming123.github.io/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><author><name>GitHub User</name></author><entry><title type="html">Blog Start</title><link href="https://naming123.github.io/git/2025/08/06/About_Gitflow.html" rel="alternate" type="text/html" title="Blog Start" /><published>2025-08-06T00:00:00+00:00</published><updated>2025-08-06T00:00:00+00:00</updated><id>https://naming123.github.io/git/2025/08/06/About_Gitflow</id><content type="html" xml:base="https://naming123.github.io/git/2025/08/06/About_Gitflow.html"><![CDATA[<p><img src="/assets/images/banners/home.jpeg" alt="banner" /></p>
+
+<p>Git을 시작해보자
+전제:</p>
+<ol>
+  <li>github에서 협업할 레포링크를 받았다 (ex. https://github.com/naming123/JAVA_baekjoon.git)</li>
+  <li>git bash 등 git과 관련된 프로그램을 모두 다운받았다.</li>
+</ol>
+
+<h3 id="초기세팅">초기세팅</h3>
+
+<ol>
+  <li>git init
+현재 폴더에 .git/을 만들고 로컬 Git 저장소로 초기화함.
+커밋, 브랜치, 리모트 정보 등은 모두 .git/ 내부 메타데이터로 관리됨.</li>
+</ol>
+
+<ul>
+  <li>로컬 저장소가 어떻게 움직이고 GitHub과 어떻게 연결됨?
+로컬: 워킹디렉토리(파일) ↔ Index(Staging Area) ↔ 로컬 커밋 히스토리</li>
+</ul>
+
+<p>원격(GitHub): origin 같은 리모트를 추가해 푸시/풀로 동기화</p>
+
+<p>한번더 한다고해서 어떤 변화가 생기는가?</p>
+<ul>
+  <li>기존 기록/설정 안 날아감. (실수로 상위 폴더에서 git init 금지)</li>
+</ul>
+
+<ol>
+  <li>git remote add origin (https://github.com/naming123/JAVA_baekjoon.git)
+현재 로컬 저장소에 원격 별칭 origin 추가
+이후 git fetch/pull/push origin … 형태로 원격과 동기화</li>
+</ol>
+
+<table>
+  <thead>
+    <tr>
+      <th>리모트 이름</th>
+      <th>용도</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>origin</td>
+      <td>기본 작업 대상(내 포크 or 중앙 저장소)</td>
+    </tr>
+    <tr>
+      <td>upstream</td>
+      <td>원본 프로젝트(포크했을 때)</td>
+    </tr>
+    <tr>
+      <td>prod</td>
+      <td>배포용 저장소</td>
+    </tr>
+    <tr>
+      <td>backup</td>
+      <td>별도 백업 저장소</td>
+    </tr>
+    <tr>
+      <td>father</td>
+      <td>그냥 원본을 이렇게 부르기로 한 경우</td>
+    </tr>
+  </tbody>
+</table>
+
+<ol>
+  <li>
+    <p>git pull origin main # 최신 코드 기준 맞춤
+<strong>fetch + merge</strong>를 한 번에 수행
+아직 로컬에 커밋이 없다면 fast-forward로 원격 main을 그대로 가져와 맞춤</p>
+  </li>
+  <li>
+    <p>git checkout -b feature/XXX  # 기능 브랜치 생성
+feature/XXX 브랜치를 새로 만들고 전환
+요즘 문법: git switch -c feature/XXX (브랜치 전용 명령, 안전함)</p>
+  </li>
+</ol>
+
+<h2 id="작업-및-commit">작업 및 commit</h2>
+
+<ol>
+  <li>
+    <p>배경지식
+staging area와 같은 부분에 대해서 어떻게 가는지 이해해야됨</p>
+  </li>
+  <li>
+    <p>git add .
+add를 하면 해당것들이 blob단위로 만들어짐</p>
+  </li>
+  <li>
+    <p>git commit -m “XXX 기능 구현 / 핫픽스 수정”
+<strong>Index 스냅샷을 영구 기록(커밋 객체)</strong>으로 만듦
+“스테이징으로 보낸다”가 아니라 스테이징된 것을 커밋으로 박제하는 단계
+(선택) 태그: 특정 커밋에 버전 달기</p>
+  </li>
+</ol>
+
+<h3 id="만약-최신상태의-다른브랜치의-작업을-가져와야할-때">만약 최신상태의 다른(브랜치의) 작업을 가져와야할 때</h3>
+<p>(상황 설정을 한번 하고가자)</p>
+
+<ol>
+  <li>
+    <p>git status vs git remote -v</p>
+  </li>
+  <li>
+    <p>git stash             # 현재 작업 임시저장
+(이건 로컬에서만 저장되는 건가?)</p>
+  </li>
+  <li>
+    <p>git fetch origin      # 원격 저장소 최신 정보 가져오기 (코드 병합 X)
+이거 origin 생략해도 되는건가? 이건 remote로 움직이는 건가? 아니면 branch로 움직이는건가?</p>
+  </li>
+  <li>
+    <p>git checkout (another branch)     # 다른 브랜치로 전환</p>
+  </li>
+</ol>
+
+<ul>
+  <li>git switch develop                 # 이건 왜 쓰는 건지 잘 모르겠음
+동일: git checkout develop
+switch는 브랜치 전용, checkout은 브랜치/파일 둘 다 다룸</li>
+</ul>
+
+<ol>
+  <li>git pull origin (another branch)  # 최신 반영</li>
+</ol>
+
+<p>&lt;– 다른거 코드 작업 –&gt;</p>
+
+<ol>
+  <li>
+    <p>git push origin (another branch)  # 사용</p>
+  </li>
+  <li>
+    <p>git stash pop         # 다시 꺼내서 계속 작업</p>
+  </li>
+</ol>
+
+<h2 id="merge하는-법">merge하는 법</h2>
+
+<p>1) 로컬에서 바로 머지</p>
+
+<p>git switch develop
+git merge feature/A       # fast-forward or merge commit 생성
+git push origin develop</p>
+
+<p>2) PR(Pull Request)로 코드리뷰/CI 거쳐 병합(권장)</p>
+
+<ol>
+  <li>git push origin feature/A</li>
+  <li>GitHub에서 PR 생성 (base: develop, compare: feature/A)</li>
+  <li>리뷰/승인 → CI 통과 → Merge 버튼</li>
+</ol>
+
+<table>
+  <tbody>
+    <tr>
+      <td>메인 배포 시나리오:</td>
+    </tr>
+    <tr>
+      <td>develop 안정화 → develop → main PR → 태그 달고 배포</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="다음-cicd-배포와-연결">다음 CI/CD 배포와 연결</h3>
+
+<p>CI/CD와 연결
+PR 생성/업데이트 시 자동으로 테스트/린트/빌드
+main/release/*에 머지되면 자동 배포 트리거</p>
+
+<p>예:
+on: pull_request → CI
+on: push to main → CD(배포)</p>]]></content><author><name>GitHub User</name></author><category term="git" /><category term="git" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">GithubAction &amp;amp;&amp;amp; GithubProject</title><link href="https://naming123.github.io/git/2025/08/05/gitHub.html" rel="alternate" type="text/html" title="GithubAction &amp;amp;&amp;amp; GithubProject" /><published>2025-08-05T00:00:00+00:00</published><updated>2025-08-05T00:00:00+00:00</updated><id>https://naming123.github.io/git/2025/08/05/gitHub</id><content type="html" xml:base="https://naming123.github.io/git/2025/08/05/gitHub.html"><![CDATA[<p><img src="/assets/images/banners/home.jpeg" alt="banner" /></p>
+
+<p>gitBlog를 시작한 가장 큰 이유는 gitHub의 여러가지 기능을 사용하면서<br />
+이에 익숙해지고 싶었기 때문이다.</p>
+
+<p>git의 가장 근본적인 설계철학은 버전관리의 용이성이라고 한다.
+이에 따라 과거기록들을 볼 수 있고 접근할 수 있으며, 과거에 내가 뭘 하고 싶었는지에 따라 빠르게 떠올리게 만들어준다는 것이다.
+=&gt; 이에 따라 7/24 오승민과 7/25 오승민이 생각을 공유할 수 있고(까먹지 않을 수 있고), 체크포인트부터 이어서 진행할 수 있다는 것이다.</p>
+
+<p>변경과정을 gitHub에서 공유할 수 있게 되고 
+이에 따라 7/24 오승민과 7/25 오승민끼리만 공유하던 것을 조성우라는 다른 사람이 들어와 협업의 확장이 가능하게 되었다.</p>
+
+<p>gitHub은 이에 대한 기능도 많이 만들어놨는데 
+대표적으로 gitHub Action과 gitHub Project가 있다.</p>
+
+<h2 id="github-action">gitHub Action</h2>
+<p>gitHub Action은 이미 블로그를 본 독자들은 경험했다.
+개발단계에서 CI/CD에 관련된 기능들이다.
+gitHub에서 일어나는 “이벤트에 따라 스크립트 자동실행도구”라고 보면 된다.</p>
+
+<p><a href="/assets/images/0805/0805-1.png">workflow</a></p>
+
+<p>위를 보면
+build-jekyll.yml파일을 볼 수 있다.</p>
+
+<p>그 뒤에 약간 DockerMerge파일의 구성요소 같이 생긴 명령어 집합들이 있다.
+간단히 설명하자면, gitHub에서 리눅스로 배포하는것, main branch에 있는 내용들에 대해서만 배포하는 것등 설정관련으로 자동스크립트해놓았다.</p>
+
+<p><a href="/assets/images/0805/0805-3.png">Deploy_lag</a> 
+(단점이 있다면, 배포가 git Push마냥 바로 되지는 않는다.)</p>
+
+<p>(여담이지만, 배포는 예전에는 보통 master branch를 사용했지만 모종의 이유로 main Branch를 쓰고, 이를 기준으로 git Branch 작업들이 이루어지고 있다. (ex. Vercel))</p>
+
+<p>현재 백엔드 추상화 리팩토링 작업 중인데 테스트케이스 사용을 위처럼 만들면 좋아보이긴하다.
+(if __ name __ = “__ main __” 같은거)</p>
+
+<h2 id="github-project">gitHub Project</h2>
+<p>gitHub Project는 collaborator끼리 merge 실패 등의 issue를 커밋버젼별로 관리하고, 질문할 수 있는 개발자친화적인 노션이라고 보면된다.</p>
+
+<p><a href="/assets/images/0805/0805-1.png">gitHubProject</a></p>
+
+<p>위는 <연구기능통합화>라는 프로젝트에서 우리가 사용하고 있는 gitHub프로젝트다.
+다음 포스트에서 설명하겠지만 우리팀의 가장 큰 문제점은 "협업 공유가 안된다"는 점이다.
+어떤 기능을 만들어도 서로 발생하는 이슈(스타트업 특성상, 개발 이외에도 갑자기 생기는 일들이 많다)과 실력과 일처리속도가 다르고, 그러다보니 마감일을 정하더라도, 변경되는 경우가 잦았기 때문에 서로의 스케줄을 파악하기 어려웠다. - 문제1</연구기능통합화></p>
+
+<p>또한 코드도 A100서버에서 경로받아서 읽는 느낌이라 항상 경로를 주고 받는것이 비효율적이라고 느꼈으며, 
+AI의 연구 특성상 기능이나 모델을 만들더라도, 계획보다는 아이디어 위주로 움직이는 경우가 많았다보니, 
+분업보다는 각자 만들어서 결과물을 가져오는 느낌이 강했다. (사실 이 부분도 잘못되었다고 생각하고 있고 이러다보니 우리 모두 공유에 익숙하지 않았다.) - 문제2</p>
+
+<p>gitHubProject는 Title, service, Assignees, due date 등의 attribute가 있었고,
+이를 통해 노션의 속성처럼</p>
+
+<p>특히 status와 priority 속성이 가장 마음에 들었는데, 
+내 성격 특성상 하인지매트릭스마냥 우선순위 및 그룹화 하고 우선순위 및 이런걸 타임라인별로 보는 걸 좋아하는데 그게 너무 깔끔히 되어서 좋았다.</p>
+
+<h3 id="코드-분업">코드 분업</h3>
+
+<p>백엔드 아키텍쳐에 대해 찾아보니, usecase와 코어에 대한 이야기가 많았다.
+나중에 이야기하겠지만, 백엔드 역시 비즈니스 로직에 대한 이해는 필요하고 
+이를 비즈니스 도메인으로 추상화하는 것은 usecase, 해당폴더로 분류된 기능들에 대한 이해를 core로 분류한다고 한다.
+추상화라는 작업을 통해 어떻게(확장자, 의미 등) 입출력을 정하고 이에 대한 구조만 짜는 형태로 분업을 시작했다.
+물론 분업을 하기 위해서는 무엇보다 같은 큰 주제에 대해서 구체적으로 공유하고 있어야한다.</p>
+
+<p>따라서 이를 UML을 통해서 해결했고 i) Img2Img, ii) Lb2Lb, iii) Lb2Obj로 기능을 큰딴에서만 나누었고
+이를 통해 APIgateway를 나누었다.</p>
+
+<p>솔직히 배워보면서 컴퓨터에 대해 이 정도로 넓은 구조가 있었나 느꼈다.
+성우님이 전체 그림을 계속 짚어주셔서 그걸 따라가며 하나씩 익히는 느낌이었다.
+나는 그냥 코드만 짜면 되는 줄 알았는데, 자동화, 배포, 협업 흐름에 대한 이해도가 더 깊고 중요했던 것 같다.</p>]]></content><author><name>GitHub User</name></author><category term="git" /><category term="git" /><category term="Blog" /><category term="Project" /><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Blog Start</title><link href="https://naming123.github.io/git/2025/07/24/Blog-Start.html" rel="alternate" type="text/html" title="Blog Start" /><published>2025-07-24T00:00:00+00:00</published><updated>2025-07-24T00:00:00+00:00</updated><id>https://naming123.github.io/git/2025/07/24/Blog-Start</id><content type="html" xml:base="https://naming123.github.io/git/2025/07/24/Blog-Start.html"><![CDATA[<p><img src="/assets/images/banners/home.jpeg" alt="banner" /></p>
+
+<p>github 블로그를 시작했다. 
+특히 프로젝트 단위로 공부한 내용을 정리하고, 이를 다시 참고하거나 공유할 수 있도록 구조화된 공간이 필요했다. 그래서 GitHub 블로그와 네이버 블로그를 병행해서 운영하기로 했다.</p>
+
+<p>내가 이해한 github 블로그와 네이버 블로그의 차이는 다음과 같다.</p>
+
+<h3 id="github-blog의-장점">Github Blog의 장점</h3>
+<ul>
+  <li>git push와 commit을 통한 연결관계 관리</li>
+  <li>Markdown에 대한 연습</li>
+  <li>블로그 레이아웃이나 구성요소 인터렉션에 대한 자유로운 수정</li>
+  <li>Github repo나 project스케줄링과 연결하여 프로젝트 아카이브처럼 사용가능</li>
+</ul>
+
+<h3 id="naver-blog의-장점">Naver Blog의 장점</h3>
+<ul>
+  <li>git이나 markdown을 사용하지 않고 원래 글 쓰는 방식대로 그대로 사용가능</li>
+  <li>이미지나 링크, 비디오를 넣는 것이 직관적</li>
+  <li>각 마크다운(콜아웃, “—” 등)에 대한 UI 스타일같은 것들이 매핑 완료되어있음</li>
+  <li>검색 유입이 용이하고, 깃헙 사용자들과 또 다른 사용자 층을 보유</li>
+</ul>
+
+<p>따라서 다음과 같이 용도를 구분했다.</p>
+<ol>
+  <li>Github Blog: 프로젝트 중심의 History 및 기술 Archive</li>
+  <li>Naver Blog: CS개념 공부나 하면서 느낀점, 알았던 새로운 인사이트 및 사실(다시 자세히 정리하고 싶을 때) 등</li>
+</ol>
+
+<hr />
+<h2 id="github-blog-만드는-법">Github Blog 만드는 법</h2>
+
+<p>깃허브 블로그는 다음 링크를 참고했다.
+https://seongwoojo.github.io/Tutorial/Github%20tutorial/post-01.html</p>
+
+<p>GitHub Blog 시작법은 간단하게 설명하면 다음과 같다.</p>
+<ol>
+  <li>{계정이름}.github.io으로 repo 만들기.</li>
+  <li><a href="http://jekyllthemes.org/">원하는 템플릿</a>을 골라서 해당 깃repo를 clone하기</li>
+  <li>git clone한 해당 폴더에서 markdown을 통해 “.md” 파일을 작성하기</li>
+  <li>Commit &amp; Push하고 github action을 통해 배포하기</li>
+</ol>
+
+<p>내가 고른 템플릿은 다음과 같다.
+<a href="http://jekyllthemes.org/thumbnails/jekyll-theme-yat.png">템플릿사진</a>
+http://jekyllthemes.org/themes/jekyll-theme-yat/</p>
+
+<h3 id="설치방법">설치방법</h3>
+
+<p>자세한 내용은 다음을 참고하자 
+https://jekyllrb.com/docs/themes/#understanding-gem-based-themes</p>
+
+<p>구성요소는 다음과 같다.
+<a href="/assets/images/0724/image.png">구성요소</a></p>
+
+<p>많은 요소들이 있지만 우리는 여기서 “_post”에 있는 “예시.md” v파일에 접근하면 되고 
+파일 제목도 유의하여 “날짜-제목.md”로 작성해야된다.</p>
+
+<p><a href="project1/assets/images/0724/blogtitleMeaning.png">적용모습</a></p>
+
+<p>assets 폴더는 우리가 올릴 이미지와 비디오, 스타일 등을 결정하고 업로드 할 수 있는 공간이다.
+원래는 각 웹 링크로 들어가 이미지 주소 복사 등을 통해 접근해도 되지만 
+그 파일에 대한 권한이 우리에게 없기 때문에 임의로 삭제가 되거나 찾을 수 없게 되기 때문에 저장하여 assets폴더로 접근하는 것이 더 안전하다.</p>
+
+<hr />
+
+<p>참고할 마크다운도 정리해보자.</p>
+
+<h3 id="1-텍스트-스타일링">1. 텍스트 스타일링</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>기능</th>
+      <th>문법</th>
+      <th>결과</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>굵게</td>
+      <td><code class="language-plaintext highlighter-rouge">**bold**</code> 또는 <code class="language-plaintext highlighter-rouge">__bold__</code></td>
+      <td>**bold**</td>
+    </tr>
+    <tr>
+      <td>기울임</td>
+      <td><code class="language-plaintext highlighter-rouge">*italic*</code> 또는 <code class="language-plaintext highlighter-rouge">_italic_</code></td>
+      <td>*italic*</td>
+    </tr>
+    <tr>
+      <td>굵은 기울임</td>
+      <td><code class="language-plaintext highlighter-rouge">***bold italic***</code></td>
+      <td>***bold italic***</td>
+    </tr>
+    <tr>
+      <td>취소선</td>
+      <td><code class="language-plaintext highlighter-rouge">~~취소~~</code></td>
+      <td><del>취소</del></td>
+    </tr>
+    <tr>
+      <td>인라인 코드</td>
+      <td><code class="language-plaintext highlighter-rouge">`코드`</code></td>
+      <td><code class="language-plaintext highlighter-rouge">코드</code></td>
+    </tr>
+    <tr>
+      <td>이스케이프</td>
+      <td><code class="language-plaintext highlighter-rouge">\*text\*</code></td>
+      <td>*text*</td>
+    </tr>
+    <tr>
+      <td>큰따옴표</td>
+      <td><code class="language-plaintext highlighter-rouge">"큰따옴표"</code></td>
+      <td>"큰따옴표"</td>
+    </tr>
+    <tr>
+      <td>작은따옴표</td>
+      <td><code class="language-plaintext highlighter-rouge">'작은따옴표'</code></td>
+      <td>‘작은따옴표’</td>
+    </tr>
+    <tr>
+      <td>콜아웃</td>
+      <td><code class="language-plaintext highlighter-rouge">&gt;콜아웃</code></td>
+      <td>&gt;콜아웃</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="2-제목과-구분선">2. 제목과 구분선</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>기능</th>
+      <th>문법</th>
+      <th>결과</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>제목 1~6단계</td>
+      <td><code class="language-plaintext highlighter-rouge">#</code> ~ <code class="language-plaintext highlighter-rouge">######</code></td>
+      <td>제목 크기</td>
+    </tr>
+    <tr>
+      <td>수평선</td>
+      <td><code class="language-plaintext highlighter-rouge">---</code>, <code class="language-plaintext highlighter-rouge">***</code>, <code class="language-plaintext highlighter-rouge">___</code></td>
+      <td>────────</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="3-목록-list">3. 목록 (List)</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>기능</th>
+      <th>문법</th>
+      <th>결과</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>순서 없는 목록</td>
+      <td><code class="language-plaintext highlighter-rouge">- 항목</code>, <code class="language-plaintext highlighter-rouge">* 항목</code>, <code class="language-plaintext highlighter-rouge">+ 항목</code></td>
+      <td>• 항목</td>
+    </tr>
+    <tr>
+      <td>순서 있는 목록</td>
+      <td><code class="language-plaintext highlighter-rouge">1. 항목</code></td>
+      <td>1. 항목</td>
+    </tr>
+    <tr>
+      <td>중첩 목록</td>
+      <td>들여쓰기 2~4칸 + <code class="language-plaintext highlighter-rouge">-</code>, <code class="language-plaintext highlighter-rouge">*</code>, <code class="language-plaintext highlighter-rouge">1.</code></td>
+      <td>계층적 목록</td>
+    </tr>
+    <tr>
+      <td>정의 목록</td>
+      <td><code class="language-plaintext highlighter-rouge">단어</code><br /><code class="language-plaintext highlighter-rouge">: 정의 내용</code></td>
+      <td>정의 리스트</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="4-링크-및-이미지">4. 링크 및 이미지</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>기능</th>
+      <th>문법</th>
+      <th>결과</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>링크</td>
+      <td><code class="language-plaintext highlighter-rouge">[텍스트](https://example.com)</code></td>
+      <td>[텍스트](https://example.com)</td>
+    </tr>
+    <tr>
+      <td>내부 링크</td>
+      <td><code class="language-plaintext highlighter-rouge">[이동](#section-title)</code></td>
+      <td>내부 섹션 이동</td>
+    </tr>
+    <tr>
+      <td>이미지</td>
+      <td><code class="language-plaintext highlighter-rouge">![alt](img_url "설명")</code></td>
+      <td>이미지 표시</td>
+    </tr>
+    <tr>
+      <td>로컬 문서 링크</td>
+      <td><code class="language-plaintext highlighter-rouge">[문서](./README.md)</code></td>
+      <td>내부 파일 링크</td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>GitHub User</name></author><category term="git" /><category term="git" /><category term="Blog" /><summary type="html"><![CDATA[]]></summary></entry></feed>
