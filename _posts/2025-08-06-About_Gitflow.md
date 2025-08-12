@@ -121,9 +121,47 @@ on: push to main → CD(배포)
 
 
 
+==========================
+
+원인: 원격(origin)에 feature/nnunetv2 브랜치가 없음(이름 다름/다른 원격에 있음/아직 안 올라감).
+
+바로 확인 → 해결 순서(그대로 복붙):
+
+원격에 브랜치 있는지 확인
 
 
+git remote -v
+git fetch --all --prune
+git ls-remote --heads origin | grep -i nnunet
+아무 것도 안 나오면 origin엔 없음.
 
+원격 브랜치 목록에서 직접 찾기
+
+
+git branch -r | grep -i feature
+# 예: origin/feature/nnUNetv2  처럼 대소문자/철자 확인
+찾은 이름으로 체크아웃
+
+
+git checkout -t origin/feature/nnUNetv2   # 실제 나온 이름으로
+만약 다른 원격(예: intern)에 있다면
+
+
+git fetch intern
+git branch -r | grep intern/feature
+git checkout -t intern/feature/nnunetv2
+로컬에만 있고 원격엔 아직 없는 경우(네가 만든 로컬 브랜치라면)
+
+
+git checkout feature/nnunetv2
+git push -u origin feature/nnunetv2
+그래도 못 찾으면 철자부터 재확인:
+
+feature/nnunetv2 vs feature/nnUNetv2 (대소문자)
+
+슬래시(/) 빠짐 여부 (feature\nnunetv2처럼 개행X)
+
+필요하면 git remote -v 출력 붙여줘. 정확한 원격 이름 기준으로 바로 명령어 써줄게
 
 
 
