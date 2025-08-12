@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Blog Start
-subtitle: 블로그 시작하는법
+title: Git Command
+subtitle: Git 명령어 사전
 categories: git
 tags: [git]
 ---

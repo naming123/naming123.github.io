@@ -43,7 +43,7 @@ GitHub Blog 시작법은 간단하게 설명하면 다음과 같다.
 4. Commit & Push하고 github action을 통해 배포하기
 
 내가 고른 템플릿은 다음과 같다.
-[템플릿사진](http://jekyllthemes.org/thumbnails/jekyll-theme-yat.png)
+![템플릿사진](http://jekyllthemes.org/thumbnails/jekyll-theme-yat.png)
 http://jekyllthemes.org/themes/jekyll-theme-yat/
 
 
@@ -54,12 +54,12 @@ http://jekyllthemes.org/themes/jekyll-theme-yat/
 https://jekyllrb.com/docs/themes/#understanding-gem-based-themes
 
 구성요소는 다음과 같다.
-[구성요소](/assets/images/0724/image.png)
+![구성요소](/assets/images/0724/image.png)
 
 많은 요소들이 있지만 우리는 여기서 "_post"에 있는 "예시.md" v파일에 접근하면 되고 
 파일 제목도 유의하여 "날짜-제목.md"로 작성해야된다.
 
-[적용모습](project1/assets/images/0724/blogtitleMeaning.png)
+![적용모습](project1/assets/images/0724/blogtitleMeaning.png)
 
 
 assets 폴더는 우리가 올릴 이미지와 비디오, 스타일 등을 결정하고 업로드 할 수 있는 공간이다.
