@@ -70,6 +70,7 @@ Remote Repository는 GitHub, GitLab과 같은 원격 서버에 위치한 저장�
 원격 브랜치의 정보는 .git/refs/remotes/에 기록된다.
 
 
-
+참고링크
+https://bill1224.tistory.com/373
 
 
