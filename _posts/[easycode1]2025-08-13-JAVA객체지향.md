@@ -6,91 +6,86 @@ categories: easycode
 tags: [JAVA]
 ---
 
+백엔드를 공부하기 위해 유튜브를 찾아보던 중 쉬운코드 유튜브를 발견했다.
+거기서 백발백중 재생목록이 백엔드의 큰줄기를 잡기에 좋아보여서 이를 토대로 따라가 보려고 한다.
+categories는 easycode로 하겠다.ㄴ
 
-1. 서론 — 왜 이 주제를 한 번에 다루는가
-자바의 객체 지향 문법은 클래스·객체·인스턴스·변수·메서드가 유기적으로 연결되어 있음
+![쉬운코드 1-3](/assets/images/0814/easy1-3.jpg)
 
-실무/시험/코딩테스트에서 헷갈리기 쉬운 용어와 개념을 한 번에 정리
+파이썬과 C++처럼, 자바는 객체지향언어로, **클래스·객체·인스턴스·변수·메서드**가 유기적으로 연결되어 있다.
+=> 이들은 각각 메모리에 할당하는 방식과 동작방식, 추상화되는계층이 다르기 때문에 정확히 분별하여 이해할 필요가 있다.
 
-args(매개변수) 동작 이해까지 확장하면 코드 작성 속도가 빨라짐
+### 1. 클래스(Class)와 객체(Object)
 
-2. 클래스(Class)와 객체(Object)
-클래스: 속성과 동작을 정의하는 설계도
+- 클래스: 속성과 동작을 정의하는 설계도
+- 객체: 클래스를 기반으로 메모리에 생성된 실체
 
-객체: 클래스를 기반으로 메모리에 생성된 실체
+SQL을 공부한 적이 있다면, "릴레이션 스키마(설계도)와 튜플()의 관계"라고 비유할 수 있을 것 같다.
 
-예시
+예시)
 
-public class Car {
-    String color;
-    void drive() {
-        System.out.println("Driving...");
+    public class Car {
+        String color;
+        void drive() {
+            System.out.println("Driving...");
+        }
     }
-}
-Car myCar = new Car(); // myCar는 객체(인스턴스)
-3. 인스턴스(Instance)
-정의: 특정 클래스에서 new 키워드를 통해 생성된 구체적인 객체
 
-특징:
+    Car myCar = new Car(); // myCar는 객체(인스턴스)
 
-같은 클래스라도 인스턴스마다 다른 데이터 상태를 가짐
+객체와 인스턴스는 크게 다르지 않다. 그저 객체 중 클래스를 통해 만들어진 객체를 "인스턴스"라고 한다.
 
-JVM 힙 메모리에 저장됨
 
-예시
+### 2. Method
 
-Car car1 = new Car();
-Car car2 = new Car();
-4. 변수(Variable)의 종류
-인스턴스 변수: 객체별로 고유한 값 저장
+각 클래스들은 다음의 메서드로 설계도를 구성한다.
 
-클래스 변수(static): 모든 인스턴스가 공유
-
-지역 변수: 메서드 내부에서만 사용 가능
-
-매개변수(Parameter): 메서드 호출 시 전달받는 값
-
-예시
-
-class Example {
-    static int sharedCount; // 클래스 변수
-    int id;                 // 인스턴스 변수
-    void setId(int id) {    // 매개변수
-        this.id = id;
-    }
-}
-5. 메서드(Method)와 args(매개변수)
 메서드 정의 구조: 반환형 + 이름 + 매개변수 목록 + 몸체
+(매개변수(args) 특징: // main의 arg는 String[]으로 고정 JLS에 의함)
+(python에서 method태그같은 제어자라고 생각하면 된다)
 
-매개변수(args) 특징:
+cf) 반환형은  ~~다.
 
-값 타입: 복사 전달
 
-참조 타입: 주소 전달(실질적으로 같은 객체 참조)
+이와 연계되는 Annotation이 있다. (python의 @decorator와 대응된다고 생각하면 된다.)
+예시조금 (this -> self / abstract class static..)
 
-예시
+예시)
 
-void greet(String name) {
-    System.out.println("Hello " + name);
-}
-greet("Alice"); // name = "Alice"
-6. 클래스-객체-변수-메서드-인스턴스 관계 시각화
-다이어그램:
-Class → new → Instance(Object)
-↳ 인스턴스 변수 / 클래스 변수
-↳ 메서드 호출 시 매개변수 전달
+    void greet(String name) { 
+        System.out.println("Hello " + name);
+    }
 
-7. 실전 예제
-Car 클래스 만들기 → 변수/메서드 선언 → 인스턴스 생성 → 값 설정 → 메서드 호출
 
-값 타입 매개변수 vs 참조 타입 매개변수 비교 실험
 
-8. 결론
-자바에서 클래스, 객체, 인스턴스는 서로 다른 개념
+### 3. 변수
 
-변수는 종류별로 쓰임이 다르고 메모리 저장 위치도 다름
+- 인스턴스 변수: 객체별로 고유한 값 저장
+- 클래스 변수(static): 클래스 안의 모든 인스턴스가 공유
+- 지역 변수: 메서드 내부에서만 사용 가능
+- 매개변수(Parameter): 메서드 호출 시 전달받는 값 *(하드코딩을 하지 않기 위해 대신 입력공간을 만들어 놓음)*
 
-매개변수 전달 방식 이해는 버그 예방과 성능에 직결됨
+예시)
+
+    class Example {
+        static int sharedCount; // 클래스 변수
+        int id;                 // 인스턴스 변수
+        void setId(int id) {    // 매개변수
+            this.id = id;
+        }
+    }
+
+---
+
+참고자료
+https://www.youtube.com/watch?v=1pZjXnev45A&list=PLcXyemr8ZeoT-_8yBc_p_lVwRRqUaN8ET
+
+https://www.youtube.com/watch?v=jOI2GG4hVz4&list=PLcXyemr8ZeoT-_8yBc_p_lVwRRqUaN8ET&index=2
+
+https://www.youtube.com/watch?v=2bL2mVXGr4I&list=PLcXyemr8ZeoT-_8yBc_p_lVwRRqUaN8ET&index=3
+
+
+
 
 
 
