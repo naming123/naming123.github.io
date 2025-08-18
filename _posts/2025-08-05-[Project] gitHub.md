@@ -6,7 +6,7 @@ categories: git
 tags: [git, Blog, Project]
 ---
 
-![banner](/assets/images/banners/home.jpeg)
+
 
 gitBlog를 시작한 가장 큰 이유는 gitHub의 여러가지 기능을 사용하면서  
 이에 익숙해지고 싶었기 때문이다. 
@@ -47,7 +47,7 @@ build-jekyll.yml파일을 볼 수 있다.
 ## gitHub Project
 gitHub Project는 collaborator끼리 merge 실패 등의 issue를 커밋버젼별로 관리하고, 질문할 수 있는 개발자친화적인 노션이라고 보면된다.   
 
-![gitHubProject](/assets/images/0805/0805-1.png) 
+![banner](/assets/images/0805/0805-1.png) 
 
 위는 <연구기능통합화>라는 프로젝트에서 우리가 사용하고 있는 gitHub프로젝트다.
 다음 포스트에서 설명하겠지만 우리팀의 가장 큰 문제점은 "협업 공유가 안된다"는 점이다.

@@ -24,8 +24,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 remote_theme: "jeffreytse/jekyll-theme-yat"
-title: Your awesome title
-email: your-email@domain.com
+title: Naming123's Blog
+email: osm1307@gmail.com
 author: GitHub User
 
 # Copyright setting
@@ -159,12 +159,12 @@ yat:
 #   - tags.html
 #   - about.md
 
-# Page default value
-# defaults:
-#   home:
-#     heading: "Your awesome heading"
-#     subheading: "Your awesome subheading"
-#     banner: "Your image url"
+Page default value
+defaults:
+  home:
+    heading: "Road to Developer"
+    subheading: "ComputerScience Studying"
+    banner: "/assets/images/default-image.jpeg"
 
 # Banner default settings
 # These banner settings are for global banner default, but you can also

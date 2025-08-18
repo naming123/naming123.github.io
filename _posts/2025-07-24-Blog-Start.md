@@ -6,7 +6,7 @@ categories: git
 tags: [git, Blog]
 ---
 
-![banner](/assets/images/banners/home.jpeg)
+![banner](/assets/images/0724/banner.png)
 
 github 블로그를 시작했다. 
 특히 프로젝트 단위로 공부한 내용을 정리하고, 이를 다시 참고하거나 공유할 수 있도록 구조화된 공간이 필요했다. 그래서 GitHub 블로그와 네이버 블로그를 병행해서 운영하기로 했다.

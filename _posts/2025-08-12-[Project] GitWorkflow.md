@@ -6,7 +6,7 @@ categories: git
 tags: [git]
 ---
 
-![banner](/assets/images/banners/home.jpeg)
+![banner](/assets/images/0812/banner.png)
 
 Git 명령어를 이해할 때,
 "어떤 영역에 있는 파일"의 어떤 부분을, "어떤 영역으로" 

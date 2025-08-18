@@ -3,9 +3,10 @@ layout: post
 title: String vs char vs String[]
 subtitle: ByteStream은 어떻게 처리하는가에 대하여
 categories: JAVA
-tags: [JAVA,]
+tags: [JAVA]
 ---
 
+![banner](/assets/images/0814/(char)banner.jpg)
 
 ### 1. String vs char vs String[]
 
@@ -15,13 +16,10 @@ tags: [JAVA,]
 
 ### 2. 변환/핵심
 
-char → String: String.valueOf(c)
-
-String → char: s.charAt(i)
-
-String ↔ char[]: s.toCharArray(), new String(chars)
-
-String ↔ String[]: split(), String.join()
+    char → String: String.valueOf(c)
+    String → char: s.charAt(i)
+    String ↔ char[]: s.toCharArray(), new String(chars)
+    String ↔ String[]: split(), String.join()
 
 ### 3. I/O 빠르게 (문자/문자열 중심)
 
