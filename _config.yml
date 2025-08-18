@@ -164,7 +164,7 @@ defaults:
   home:
     heading: "Road to Developer"
     subheading: "ComputerScience Studying"
-    banner: "/assets/images/default-image.jpeg"
+    # banner: "/assets/images/default-image.jpeg"
 
 # Banner default settings
 # These banner settings are for global banner default, but you can also
