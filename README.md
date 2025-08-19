@@ -1,10 +1,11 @@
-# My Blog
+# Naming's Blog
+- Road to Developers
 
 👉 블로그 주소: [https://naming123.github.io/](https://naming123.github.io/)
 
 ## 소개
-이 블로그는 제가 학습하고 경험한 내용을 정리하는 공간입니다.  
-**기록과 아카이빙**을 통해 성장 과정을 남기고, 필요할 때 다시 참고할 수 있도록 구성했습니다.
+이 블로그는 제가 백엔드를 포함한 전반적인 CS지식을 학습하고 경험한 내용을 정리하는 공간입니다.  
+필요할 때 다시 참고할 수 있도록 구성했습니다.
 
 ## 다루는 주제
 
@@ -13,7 +14,7 @@
 - 자료형 비교, 배열, 입출력, 객체지향 개념 등  
 
 ### Backend (백엔드)
-- 유튜브 *쉬운코드* 채널을 보며 따라한 학습 기록  
+- 유튜브 [*쉬운코드*](https://www.youtube.com/channel/UCReNwSTQ1RqDZDnG9Qz_gyg) 채널을 보며 따라한 학습 기록  
 - FastAPI, 데이터베이스, 서버 구조 이해  
 
 ### Git & Project
