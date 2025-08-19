@@ -1,7 +1,7 @@
 # Naming's Blog
-- Road to Developers
+=> Road to Developers
 
-👉 블로그 주소: [https://naming123.github.io/](https://naming123.github.io/)
+블로그 주소: [https://naming123.github.io/](https://naming123.github.io/)
 
 ## 소개
 이 블로그는 제가 백엔드를 포함한 전반적인 CS지식을 학습하고 경험한 내용을 정리하는 공간입니다.  

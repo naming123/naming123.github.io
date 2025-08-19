@@ -72,5 +72,5 @@ Remote Repository는 GitHub, GitLab과 같은 원격 서버에 위치한 저장�
 
 참고링크
 https://bill1224.tistory.com/373
-
-
+https://seongwoojo.github.io/tech-review/Communicate/Git/git%EC%9D%98%20%EC%A0%80%EC%9E%A5%EB%B0%A9%EC%8B%9D.html
+https://www.youtube.com/watch?v=xn-kNB_a8CQ&t=1488s
