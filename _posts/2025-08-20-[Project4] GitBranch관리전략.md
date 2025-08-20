@@ -2,7 +2,7 @@
 layout: post
 title: Git branch
 subtitle: 협업 시 branch 관리
-categories: git
+categories: Git&Project
 tags: [git]
 ---
 

@@ -2,7 +2,7 @@
 layout: post
 title: GithubAction && GithubProject
 subtitle: 블로그 시작하는법
-categories: git
+categories: Project
 tags: [git, Blog, Project]
 image: /assets/images/0805/0805-1.png
 ---

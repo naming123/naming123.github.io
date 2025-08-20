@@ -2,7 +2,7 @@
 layout: post
 title: Git 작업영역
 subtitle: Git 명령어를 사용하면 일어나는 일들
-categories: git
+categories: Project
 tags: [git]
 ---
 

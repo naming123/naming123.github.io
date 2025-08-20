@@ -17,9 +17,8 @@
 - 유튜브 [*쉬운코드*](https://www.youtube.com/channel/UCReNwSTQ1RqDZDnG9Qz_gyg) 채널을 보며 따라한 학습 기록  
 - FastAPI, 데이터베이스, 서버 구조 이해  
 
-### Git & Project
-- Git 기본 명령어와 작업 영역 개념  
-- GitHub Actions 및 프로젝트 관리  
+### Project
+- Git 기본 명령어와 프로젝트 관리  
 - 실습 과정과 시행착오 아카이빙  
 
 ## 앞으로의 계획

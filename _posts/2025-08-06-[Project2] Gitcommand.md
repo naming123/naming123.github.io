@@ -2,7 +2,7 @@
 layout: post
 title: Git Command
 subtitle: Git 명령어 사전
-categories: git
+categories: Project
 tags: [git]
 ---
 
