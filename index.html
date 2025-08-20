@@ -1,0 +1,2720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Home | Naming123’s Blog</title>
+<meta name="generator" content="Jekyll v4.4.1">
+<meta property="og:title" content="Home">
+<meta name="author" content="GitHub User">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<link rel="canonical" href="https://naming123.github.io/">
+<meta property="og:url" content="https://naming123.github.io/">
+<meta property="og:site_name" content="Naming123’s Blog">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Home">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"GitHub User"},"description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Home","name":"Naming123’s Blog","url":"https://naming123.github.io/"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="icon" href="">
+  <link rel="canonical" href="https://naming123.github.io">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://naming123.github.io/feed.xml" title="Naming123's Blog">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe-lightbox.umd.min.js" async></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe.umd.min.js" async></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.min.css" rel="stylesheet">
+<style>
+  .pswp .pswp__container .pswp__img {
+    background-color: white;
+  }
+</style>
+
+<script>
+  function initPhotoSwipe() {
+    let customOptions = {};
+
+    try {
+      const data = ``.replaceAll("=>", ":");
+      customOptions = JSON.parse(data);
+    } catch (e) {
+      console.info("Invalid custom photo previewer options! " + e.message);
+    }
+
+    // Define object and gallery options
+    const options = Object.assign(
+      {
+        gallery: "section.main",
+        children: "a.photo-swipe",
+        photo_scale: 2,
+        // dynamic import is not supported in UMD version
+        pswpModule: PhotoSwipe,
+      },
+      customOptions
+    );
+
+    const galleryEl = document.querySelector(options.gallery);
+    if (!galleryEl) {
+      return;
+    }
+
+    const imgEls = [];
+    const els = galleryEl.querySelectorAll("img:not(.emoji)");
+    els.forEach((el) => {
+      if (el.src.trim() == "") {
+        return;
+      }
+      if (!imgEls.includes(el)) {
+        imgEls.push(el);
+      }
+    });
+
+    if (imgEls.length === 0) {
+      return;
+    }
+
+    imgEls.forEach((imgEl) => {
+      imgEl.outerHTML = `
+      <a class="photo-swipe"
+        href="${imgEl.src}"
+        data-pswp-width="${
+          Math.max(imgEl.naturalWidth, imgEl.width) * options.photo_scale
+        }"
+        data-pswp-height="${
+          Math.max(imgEl.naturalHeight, imgEl.height) * options.photo_scale
+        }"
+        data-pswp-caption="${imgEl.getAttribute("caption") || imgEl.alt}"
+        target="_blank">
+        ${imgEl.outerHTML}
+      </a>`;
+    });
+
+    // Initialize PhotoSwipe 5
+    var lightbox = new PhotoSwipeLightbox(options);
+
+    lightbox.init();
+  }
+
+  window.addEventListener("load", initPhotoSwipe);
+</script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header site-header-transparent" role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/">
+  <img class="site-favicon" title="Naming123's Blog" src="" onerror="this.style.display='none'">
+  Naming123's Blog
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/about.html">ABOUT</a><a class="page-link" href="/archives.html">ARCHIVES</a><a class="page-link" href="/categories.html">CATEGORIES</a><a class="page-link" href="/">HOME</a><a class="page-link" href="/tags.html">TAGS</a>
+
+
+
+
+
+
+
+
+
+<div class="page-link" style="display: inline;">
+
+
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<div class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png" title="English">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="fr">
+          
+          <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" title="French">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="zh-CN">
+          
+          <img src="https://cdn.countryflags.com/thumbs/china/flag-400.png" title="Chinese(Simple)">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ja">
+          
+          <img src="https://cdn.countryflags.com/thumbs/japan/flag-400.png" title="Japanese">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ko">
+          
+          <img src="https://cdn.countryflags.com/thumbs/south-korea/flag-400.png" title="Korean">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ru">
+          
+          <img src="https://cdn.countryflags.com/thumbs/russia/flag-400.png" title="Russian">
+          
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  // Links to cross-origin destinations are unsafe
+  var gll = document.getElementsByClassName('goog-logo-link')[0];
+  if (gll) {
+    gll.setAttribute('rel', 'noopener');
+  }
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</div>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;documentElement.setAttribute("data-header-transparent", "");var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="page-banner">
+    <div class="page-banner-img">
+<div style="background-image: url(/assets/images/banners/home.jpeg)"></div>
+        <img class="img-placeholder" src="/assets/images/banners/home.jpeg">
+</div>
+    <div class="wrapper">
+      <div class="page-banner-inner"><div class="page-banner-default">
+            <h1 class="page-banner-heading">
+              Road to Developer
+            </h1>
+            <h2 class="page-banner-subheading">
+              ComputerScience Studying
+            </h2>
+          </div></div>
+    </div>
+  </section><script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('auto' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+        document.dispatchEvent(new Event('theme-changed'));
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<div id="click-to-top" class="click-to-top">
+  <i class="fa fa-arrow-up"></i>
+</div>
+<script>
+  (function () {
+    const clickToTop = document.getElementById('click-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        clickToTop.classList.add('show')
+      }else {
+        clickToTop.classList.remove('show')
+      }
+    });
+    clickToTop.addEventListener('click', () => {
+      window.smoothScrollTo(0);
+    });
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="articles">
+  
+
+  
+
+
+  
+
+
+
+
+<div class="pagination">
+  <!-- Post list links -->
+  <ul class="post-list z-image-style">
+    <!-- Top list item --><!-- Normal list item -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/git&amp;project/2025/08/20/Project4-GitBranch%EA%B4%80%EB%A6%AC%EC%A0%84%EB%9E%B5.html">
+      Git branch<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 20, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/git&amp;project/2025/08/20/Project4-GitBranch%EA%B4%80%EB%A6%AC%EC%A0%84%EB%9E%B5.html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/git&amp;project/2025/08/20/Project4-GitBranch%EA%B4%80%EB%A6%AC%EC%A0%84%EB%9E%B5.html">
+      <p>
+
+git branch관리 전략은 어떻게 할가?
+
+
+
+참고자료
+
+  
+    Git구조
+  
+  
+    Git명령어조합
+  
+
+ <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/tags.html#git">#git</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/java/2025/08/19/%EB%B0%B1%EC%A4%806-%EC%9D%B8%EC%88%98%EB%B6%84%ED%95%B4.html">
+      인수분해<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 19, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/java/2025/08/19/%EB%B0%B1%EC%A4%806-%EC%9D%B8%EC%88%98%EB%B6%84%ED%95%B4.html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/java/2025/08/19/%EB%B0%B1%EC%A4%806-%EC%9D%B8%EC%88%98%EB%B6%84%ED%95%B4.html">
+      <p>
+
+괄호로 많이 묶는게 빠를까? 전개식으로 푸는게 더 빠를까?
+
+1. 이론적 관점
+
+괄호로 묶어서 공통 계산을 줄이는 방식 → 연산 횟수 최소화 → CPU 사이클 절약.
+
+전개식 → 같은 부분을 여러 번 곱하거나 더해야 하므로 보통 느림.
+
+예:
+
+// 괄호 활용
+int x = (a+b) * (c+d);   // a+b, c+d 각각 1번만 계산
+
+// 전개식
+int x = a*c + a*d + b*c + b*d;   // 곱 4번, 덧셈 3번
+
+
+두 식은 결과가 같지만 연산 횟수는 다름.
+
+2. 실제 실행 시
+
+컴파일러 최적화(O1~O3)가 걸리면, 대부분의 언어(C, C++, Java, Python JIT 등)... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/tags.html#JAVA">#JAVA</a><a class="post-tag" href="/tags.html#Baekjoon">#Baekjoon</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/easycode/2025/08/19/easy6-%EB%A9%80%ED%8B%B0%EC%93%B0%EB%A0%88%EB%93%9C(withJAVA).html">
+      멀티쓰레드<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 19, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/easycode/2025/08/19/easy6-%EB%A9%80%ED%8B%B0%EC%93%B0%EB%A0%88%EB%93%9C(withJAVA).html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/easycode/2025/08/19/easy6-%EB%A9%80%ED%8B%B0%EC%93%B0%EB%A0%88%EB%93%9C(withJAVA).html">
+      <p>JAVA의 가장 큰 장점은 운영체제 호환성과 더불어 멀티쓰레드 조작이다.
+
+
+  동시성(Concurrency)과 병렬성(Parallelism)
+동시성: 여러 요청이 거의 동시에 들어오더라도, CPU 한 코어를 빠르게 번갈아가며 실행하여 마치 동시에 처리하는 것처럼 보이게 하는 기술.
+
+
+병렬성: CPU 여러 코어에서 실제로 동시에 실행하는 것.
+
+Java는 멀티스레드와 스레드풀(ExecutorService)로 이 두 가지를 모두 활용할 수 있어, 수천~수만 개의 요청을 효율적으로 분배 처리할 수 있습니다.
+
+
+
+참고자료
+
+  쉬운코드) 백발백중 6강
+
+
+ <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/tags.html#easycode">#easycode</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/easycode/2025/08/18/easy5-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%EC%8A%A4%EB%A0%88%EB%93%9C.html">
+      프로세스와 스레드의 차이<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 18, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/easycode/2025/08/18/easy5-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%EC%8A%A4%EB%A0%88%EB%93%9C.html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/easycode/2025/08/18/easy5-%ED%94%84%EB%A1%9C%EC%84%B8%EC%8A%A4%EC%99%80%EC%8A%A4%EB%A0%88%EB%93%9C.html">
+      <p>기술면접에서 나온 질문 중에서 가장 많이 언급되는 질문은
+“멀티쓰레드와 멀티프로세스의 차이는?” 이라는 질문이다.
+
+
+
+백엔드, 특히 “대규모트래픽”을 핵심소양으로 생각하는 회사들이라면 기본중의 기본으로 알아야 할 지식이다.
+
+왜그럴까?
+
+application을 실행되는 원리는
+디스크(SSD/HDD 등)에 저장된 소스코드/컴파일언어로 이루어진 프로그램을 RAM에 올림으로써, 실행된다.
+
+이때 RAM에 올라간 코드들은
+
+#include &lt;stdio.h&gt;  // C로 설명해보자
+int g = 10;         // 전역 변수
+
+int main() {
+    int x = 5;      // 지역 변수
+ ... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/tags.html#easycode">#easycode</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/easycode/2025/08/18/easy4-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EA%B3%BC%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%A0%91%EA%B7%BC.html">
+      객체지향과 메모리구조<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 18, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/easycode/2025/08/18/easy4-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EA%B3%BC%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%A0%91%EA%B7%BC.html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/easycode/2025/08/18/easy4-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5%EA%B3%BC%EB%A9%94%EB%AA%A8%EB%A6%AC%EC%A0%91%EA%B7%BC.html">
+      <p>백발백중 4번째 강의는 객체지향의 요소들이 물리적 메모리에 어떻게 저장되고 움직이는가를 말한다.
+
+
+
+1. 메모리구조
+
+컴퓨터의 물리적 메모리 공간은 다음과 같이 이해할 수 있다.
+이 메모리 공간은 용도에 따라 여러 영역으로 나뉘는데,
+대표적으로 코드(Code) 영역, 데이터(Data) 영역, 힙(Heap) 영역, 스택(Stack) 영역이 있다.
+
+코드 영역은 실행할 프로그램의 기계어 명령이 저장되는 공간이고,
+데이터 영역은 프로그램 시작부터 종료까지 유지되는 전역 변수·정적 변수가 저장된다.
+Heap 영역은 동적으로 생성되는 객체가 저장되며, Stack 영역은 함수 호출 시 생성되는 지역 변수와 매개변수, 그리고... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/tags.html#easycode">#easycode</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/easycode/2025/08/14/%EB%B0%B1%EC%A4%805-%ED%98%95%EB%B3%80%ED%99%98%EB%B0%8F%EA%B8%B0%ED%83%80%EC%A1%B0%EC%9E%91.html">
+      형변환 및 기타조작<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 14, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/easycode/2025/08/14/%EB%B0%B1%EC%A4%805-%ED%98%95%EB%B3%80%ED%99%98%EB%B0%8F%EA%B8%B0%ED%83%80%EC%A1%B0%EC%9E%91.html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/easycode/2025/08/14/%EB%B0%B1%EC%A4%805-%ED%98%95%EB%B3%80%ED%99%98%EB%B0%8F%EA%B8%B0%ED%83%80%EC%A1%B0%EC%9E%91.html">
+      <p>
+
+문자열 ↔ 숫자: Integer.parseInt, Long.parseLong, String.valueOf
+
+문자 ↔ 문자열: s.charAt(i), String.valueOf(c), s.toCharArray()
+
+캐스팅: (long)int, (int)double
+
+조건: equals, 문자 판정 Character.isDigit/Letter/UpperCase
+
+반복: “ha”.repeat(3), StringBuilder, for-each, IntStream
+
+1. I/O 빠르게 (변환 + 조건/반복)
+
+문자열 → 숫자
+
+int x = Integer.parseInt("123");
+long y = Long.parse... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/tags.html#JAVA">#JAVA</a><a class="post-tag" href="/tags.html#Baekjoon">#Baekjoon</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/java/2025/08/14/%EB%B0%B1%EC%A4%804-%EB%B0%B0%EC%97%B4.html">
+      배열<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 14, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/java/2025/08/14/%EB%B0%B1%EC%A4%804-%EB%B0%B0%EC%97%B4.html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/java/2025/08/14/%EB%B0%B1%EC%A4%804-%EB%B0%B0%EC%97%B4.html">
+      <p>
+
+
+  배열(Array): 길이 고정, 원시 타입 가능, 인덱스 O(1)
+  List(인터페이스): 순서/중복 허용, 인덱스 메서드 제공
+  ArrayList(구현체): 가변 길이 배열 기반 List
+  Set: 중복 불가(인덱스 없음)
+
+
+String[], int[]는 “배열”이며, ArrayList은 컬렉션
+
+1. 인덱스/중복/탐색
+
+배열 인덱스: arr[i]
+
+리스트 인덱스: list.get(i), 검색 indexOf(x)
+
+빈도: Collections.frequency(list, x)
+
+맵 사용: 값 집계 Map.merge()
+
+2. I/O 빠르게 (배열/리스트)
+
+배열 입력
+
+BufferedReader ... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/tags.html#JAVA">#JAVA</a><a class="post-tag" href="/tags.html#Baekjoon">#Baekjoon</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/java/2025/08/14/%EB%B0%B1%EC%A4%803-%EC%88%AB%EC%9E%90casting.html">
+      int vs long vs double<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 14, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/java/2025/08/14/%EB%B0%B1%EC%A4%803-%EC%88%AB%EC%9E%90casting.html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/java/2025/08/14/%EB%B0%B1%EC%A4%803-%EC%88%AB%EC%9E%90casting.html">
+      <p>
+
+1. 범위:
+int(32b) &lt; long(64b), double(64b 부동소수)
+
+리터럴: 1, 1L, 1.0, 3.14F
+
+변환: int→long(자동), long→int(캐스팅), 실수 연산 섞이면 double
+
+2. 큰 수/거듭제곱
+
+정수 거듭제곱: 반복 곱 or BigInteger.pow()
+
+Math.pow()는 double 반환 → 정수면 형변환 (long)
+
+3. I/O 빠르게 (숫자 중심)
+
+입력
+
+BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+int n = Integer.parseInt(br.readLi... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/tags.html#JAVA">#JAVA</a><a class="post-tag" href="/tags.html#Baekjoon">#Baekjoon</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/java/2025/08/14/%EB%B0%B1%EC%A4%802-CharvsString.html">
+      String vs char vs String[]<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 14, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/java/2025/08/14/%EB%B0%B1%EC%A4%802-CharvsString.html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/java/2025/08/14/%EB%B0%B1%EC%A4%802-CharvsString.html">
+      <p>
+
+1. String vs char vs String[]
+
+
+  char: 한 글자(UTF-16 코드 유닛)
+  String: 불변 문자열
+  String[]: 문자열들의 배열(가변 길이 아님)
+
+
+2. 변환/핵심
+
+char → String: String.valueOf(c)
+String → char: s.charAt(i)
+String ↔ char[]: s.toCharArray(), new String(chars)
+String ↔ String[]: split(), String.join()
+
+
+3. I/O 빠르게 (문자/문자열 중심)
+
+1) 입력
+
+BufferedReader br = new BufferedReader(... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/tags.html#JAVA">#JAVA</a><a class="post-tag" href="/tags.html#Baekjoon">#Baekjoon</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/java/2025/08/13/%EB%B0%B1%EC%A4%801-JAVA%EC%9E%85%EC%B6%9C%EB%A0%A5.html">
+      JAVA입출력<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 13, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/java/2025/08/13/%EB%B0%B1%EC%A4%801-JAVA%EC%9E%85%EC%B6%9C%EB%A0%A5.html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/java/2025/08/13/%EB%B0%B1%EC%A4%801-JAVA%EC%9E%85%EC%B6%9C%EB%A0%A5.html">
+      <p>자바의 입출력은 바이트스트림(byte stream) 단위로 데이터를 읽고 쓴다.
+이 방식은 운영체제에 종속되지 않아 OS가 달라도 동일하게 동작하며, DB나 네트워크 통신에서도 안정적인 호환성을 제공한다.
+예를 들어 서버가 리눅스, 클라이언트가 윈도우여도 바이트 단위 데이터는 변형 없이 그대로 주고받을 수 있고, 필요한 시점에만 인코딩·디코딩을 적용하면 된다.
+
+입력 흐름
+: System.in → InputStreamReader → BufferedReader
+콘솔 입력의 기본 구조는 이렇게 진행된다.
+
+
+
+
+  
+    System.in
+표준 입력 스트림. 타입은 InputStream이며 바이트 단위로만 읽을 수 ... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/tags.html#JAVA">#JAVA</a><a class="post-tag" href="/tags.html#Baekjoon">#Baekjoon</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/easycode/2025/08/13/easy1-3-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5.html">
+      객체지향과 메모리구조<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 13, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 1 min</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/easycode/2025/08/13/easy1-3-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5.html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/easycode/2025/08/13/easy1-3-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5.html">
+      <p>백엔드를 공부하기 위해 유튜브를 찾아보던 중 쉬운코드 유튜브를 발견했다.
+거기서 백발백중 재생목록이 백엔드의 큰줄기를 잡기에 좋아보여서 이를 토대로 따라가 보려고 한다.
+categories는 easycode로 하겠다.ㄴ
+
+
+
+파이썬과 C++처럼, 자바는 객체지향언어로, 클래스·객체·인스턴스·변수·메서드가 유기적으로 연결되어 있다.
+=&gt; 이들은 각각 메모리에 할당하는 방식과 동작방식, 추상화되는계층이 다르기 때문에 정확히 분별하여 이해할 필요가 있다.
+
+1. 클래스(Class)와 객체(Object)
+
+  클래스: 속성과 동작을 정의하는 설계도
+  객체: 클래스를 기반으로 메모리에 생성된 실체
+
+
+예시)
+
+pub... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/tags.html#easycode">#easycode</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/project/2025/08/12/Project3-GitWorkflow.html">
+      Git 작업영역<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 12, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/project/2025/08/12/Project3-GitWorkflow.html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/project/2025/08/12/Project3-GitWorkflow.html">
+      <p>
+
+Git 명령어를 이해할 때,
+“어떤 영역에 있는 파일”의 어떤 부분을, “어떤 영역으로” 
+“이동(원본이 없음), 복사(원본이 남음), 삭제(주의 필요)” 중 어느 작업을 하는지 이해하고 사용할 필요가 있다.
+(+ 위 명령어를 취소하는 법과 같이 이해하며 넘어가자)
+
+
+
+위는 가장 기본적인 git작업에 대한 여정을 나타낸것이다.
+
+
+  
+    깃 푸쉬 (Local -&gt; Remote)
+
+    git add .
+ git commit -m “my name is Peter”
+ git push orign main
+  
+  
+    깃 풀 (Remote -&gt; Local)
+
+    git fetch
+ 원격에서... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/tags.html#git">#git</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/project/2025/08/06/Project2-Gitcommand.html">
+      Git Command<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 06, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 5 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/project/2025/08/06/Project2-Gitcommand.html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/project/2025/08/06/Project2-Gitcommand.html">
+      <p>
+
+Git을 시작해보자
+전제:
+
+  github에서 협업할 레포링크를 받았다 (ex. https://github.com/naming123/JAVA_baekjoon.git)
+  git bash 등 git과 관련된 프로그램을 모두 다운받았다.
+
+
+모든 명령어는 현상황 상태 확인 -&gt; 명령어를 위한 상태설정 -&gt; 명령어 실행  (-&gt; 이전 상황 복원) 으로 이해한다.
+각 번호의 명령어에서 []에 있는 것을 확인하면 된다.
+
+1. git init
+현재 폴더에 .git/을 만들고 로컬 Git 저장소로 초기화한다.
+커밋, 브랜치, 리모트 정보 등은 모두 .git/ 내부 메타데이터로 관리된다.
+=&gt; 작업할... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags"><a class="post-tag" href="/tags.html#git">#git</a></div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/project/2025/08/05/Project1-gitHub.html">
+      GithubAction &amp;&amp; GithubProject<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Aug 05, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 2 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/project/2025/08/05/Project1-gitHub.html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/project/2025/08/05/Project1-gitHub.html">
+      <p>gitBlog를 시작한 가장 큰 이유는 gitHub의 여러가지 기능을 사용하면서
+이에 익숙해지고 싶었기 때문이다.
+
+git의 가장 근본적인 설계철학은 버전관리의 용이성이라고 한다.
+이에 따라 과거기록들을 볼 수 있고 접근할 수 있으며, 과거에 내가 뭘 하고 싶었는지에 따라 빠르게 떠올리게 만들어준다는 것이다.
+=&gt; 이에 따라 7/24 오승민과 7/25 오승민이 생각을 공유할 수 있고(까먹지 않을 수 있고), 체크포인트부터 이어서 진행할 수 있다는 것이다.
+
+변경과정을 gitHub에서 공유할 수 있게 되고 
+이에 따라 7/24 오승민과 7/25 오승민끼리만 공유하던 것을 조성우라는 다른 사람이 들어와 협업의 확... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/tags.html#git">#git</a><a class="post-tag" href="/tags.html#Blog">#Blog</a><a class="post-tag" href="/tags.html#Project">#Project</a>
+</div>
+</li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li class="post-item ">
+  <h2 class="post-title">
+    <a class="post-link" href="/git/2025/07/24/Blog1-Blog-Start.html">
+      Blog Start<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+  </h2>
+  <div class="post-meta">
+    <span class="post-date"><i class="fa fa-calendar"></i> Jul 24, 2025</span><span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 3 mins</span>
+  </div>
+  <div class="post-excerpt">
+<a class="post-image" href="/git/2025/07/24/Blog1-Blog-Start.html" style="flex: 0 1 '38.2%'">
+      <div style="background-image: url('/assets/images/default-image.jpeg'); height: '160px'"></div>
+    </a><a class="post-text" href="/git/2025/07/24/Blog1-Blog-Start.html">
+      <p>
+
+github 블로그를 시작했다. 
+특히 프로젝트 단위로 공부한 내용을 정리하고, 이를 다시 참고하거나 공유할 수 있도록 구조화된 공간이 필요했다. 그래서 GitHub 블로그와 네이버 블로그를 병행해서 운영하기로 했다.
+
+내가 이해한 github 블로그와 네이버 블로그의 차이는 다음과 같다.
+
+Github Blog의 장점
+
+  git push와 commit을 통한 연결관계 관리
+  Markdown에 대한 연습
+  블로그 레이아웃이나 구성요소 인터렉션에 대한 자유로운 수정
+  Github repo나 project스케줄링과 연결하여 프로젝트 아카이브처럼 사용가능
+
+
+Naver Blog의 장점
+
+  git이나 mark... <span class="read_more">Read More</span></p>
+    </a>
+  </div>
+  <div class="post-tags">
+<a class="post-tag" href="/tags.html#git">#git</a><a class="post-tag" href="/tags.html#Blog">#Blog</a>
+</div>
+</li>
+</ul>
+
+  <!-- Pagination links -->
+</div>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="common-list">
+  <ul>
+    <li>
+      <a href="/index.html">
+        All<span>15</span>
+      </a>
+    </li>
+
+    
+      <li>
+        <a href="/categories.html#h-Git&amp;Project">
+          Git&amp;Project <span>1</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/categories.html#h-JAVA">
+          JAVA <span>5</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/categories.html#h-Project">
+          Project <span>3</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/categories.html#h-easycode">
+          easycode <span>5</span>
+        </a>
+      </li>
+    
+      <li>
+        <a href="/categories.html#h-git">
+          git <span>1</span>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>Unpublished Work <span class="copyleft">©</span> 2017-2025 GitHub User</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,31 @@
+# Naming's Blog
+=> Road to Developers
+
+블로그 주소: [https://naming123.github.io/](https://naming123.github.io/)
+
+## 소개
+이 블로그는 제가 백엔드를 포함한 전반적인 CS지식을 학습하고 경험한 내용을 정리하는 공간입니다.  
+필요할 때 다시 참고할 수 있도록 구성했습니다.
+
+## 다루는 주제
+
+### JAVA
+- 코딩테스트 준비 과정에서 공부한 문법과 기본기 정리  
+- 자료형 비교, 배열, 입출력, 객체지향 개념 등  
+
+### Backend (백엔드)
+- 유튜브 [*쉬운코드*](https://www.youtube.com/channel/UCReNwSTQ1RqDZDnG9Qz_gyg) 채널을 보며 따라한 학습 기록  
+- FastAPI, 데이터베이스, 서버 구조 이해  
+
+### Project
+- Git 기본 명령어와 프로젝트 관리  
+- 실습 과정과 시행착오 아카이빙  
+
+## 앞으로의 계획
+- 코딩테스트 문제 풀이 정리  
+- 백엔드 기초부터 CI/CD, 배포까지 학습 확장  
+- 프로젝트 진행 과정과 시행착오 기록  
+
+---
+
+👉 [블로그 바로가기](https://naming123.github.io/)

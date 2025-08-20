@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-translate-customization" content="108d9124921d80c3-80e20d618ff053c8-g4f02ec6f3dba68b7-c">
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Git Command | Naming123’s Blog</title>
+<meta name="generator" content="Jekyll v4.4.1">
+<meta property="og:title" content="Git Command">
+<meta name="author" content="GitHub User">
+<meta property="og:locale" content="en_US">
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.">
+<link rel="canonical" href="https://naming123.github.io/project/2025/08/06/Project2-Gitcommand.html">
+<meta property="og:url" content="https://naming123.github.io/project/2025/08/06/Project2-Gitcommand.html">
+<meta property="og:site_name" content="Naming123’s Blog">
+<meta property="og:type" content="article">
+<meta property="article:published_time" content="2025-08-06T00:00:00+00:00">
+<meta name="twitter:card" content="summary">
+<meta property="twitter:title" content="Git Command">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"GitHub User"},"dateModified":"2025-08-06T00:00:00+00:00","datePublished":"2025-08-06T00:00:00+00:00","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Git Command","mainEntityOfPage":{"@type":"WebPage","@id":"https://naming123.github.io/project/2025/08/06/Project2-Gitcommand.html"},"url":"https://naming123.github.io/project/2025/08/06/Project2-Gitcommand.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="icon" href="">
+  <link rel="canonical" href="https://naming123.github.io">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-noto-sans@0.0.72/index.min.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <script src="/assets/js/main.js"></script><link type="application/atom+xml" rel="alternate" href="https://naming123.github.io/feed.xml" title="Naming123's Blog">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js"></script>
+<!-- and it's easy to individually load additional languages -->
+<script charset="UTF-8" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/languages/go.min.js" async></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+// Init highlight js
+document.addEventListener('DOMContentLoaded', function(event) {
+  var els = document.querySelectorAll('pre code')
+
+  function addLangData(block) {
+    var outer = block.parentElement.parentElement.parentElement;
+    var lang = block.getAttribute('data-lang');
+    for (var i = 0; i < outer.classList.length; i++) {
+      var cls = outer.classList[i];
+      if (cls.startsWith('language-')) {
+        lang = cls;
+        break;
+      }
+    }
+    if (!lang) {
+      cls = block.getAttribute('class');
+      lang = cls ? cls.replace('hljs ', '') : '';
+    }
+    if (lang.startsWith('language-')) {
+      lang = lang.substr(9);
+    }
+    block.setAttribute('class', 'hljs ' + lang);
+    block.parentNode.setAttribute('data-lang', lang);
+  }
+
+  function addBadge(block) {
+    var enabled = ('true' || 'true').toLowerCase();
+    if (enabled == 'true') {
+      var pre = block.parentElement;
+      pre.classList.add('badge');
+    }
+  }
+
+  function handle(block) {
+    addLangData(block);
+    addBadge(block)
+    hljs.highlightBlock(block);
+  }
+
+  for (var i = 0; i < els.length; i++) {
+    var el = els[i];
+    handle(el);
+  }
+});
+</script>
+
+<style>
+  /* code language badge */
+  pre.badge::before {
+    content: attr(data-lang);
+    color: #fff;
+    background-color: #ff4e00;
+    padding: 0 .5em;
+    border-radius: 0 2px;
+    text-transform: uppercase;
+    text-align: center;
+    min-width: 32px;
+    display: inline-block;
+    position: absolute;
+    right: 0;
+  }
+
+  /* fix wrong badge display for firefox browser */
+  code > table pre::before {
+    display: none;
+  }
+</style>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe-lightbox.umd.min.js" async></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/umd/photoswipe.umd.min.js" async></script>
+<link href="//cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.7/photoswipe.min.css" rel="stylesheet">
+<style>
+  .pswp .pswp__container .pswp__img {
+    background-color: white;
+  }
+</style>
+
+<script>
+  function initPhotoSwipe() {
+    let customOptions = {};
+
+    try {
+      const data = ``.replaceAll("=>", ":");
+      customOptions = JSON.parse(data);
+    } catch (e) {
+      console.info("Invalid custom photo previewer options! " + e.message);
+    }
+
+    // Define object and gallery options
+    const options = Object.assign(
+      {
+        gallery: "section.main",
+        children: "a.photo-swipe",
+        photo_scale: 2,
+        // dynamic import is not supported in UMD version
+        pswpModule: PhotoSwipe,
+      },
+      customOptions
+    );
+
+    const galleryEl = document.querySelector(options.gallery);
+    if (!galleryEl) {
+      return;
+    }
+
+    const imgEls = [];
+    const els = galleryEl.querySelectorAll("img:not(.emoji)");
+    els.forEach((el) => {
+      if (el.src.trim() == "") {
+        return;
+      }
+      if (!imgEls.includes(el)) {
+        imgEls.push(el);
+      }
+    });
+
+    if (imgEls.length === 0) {
+      return;
+    }
+
+    imgEls.forEach((imgEl) => {
+      imgEl.outerHTML = `
+      <a class="photo-swipe"
+        href="${imgEl.src}"
+        data-pswp-width="${
+          Math.max(imgEl.naturalWidth, imgEl.width) * options.photo_scale
+        }"
+        data-pswp-height="${
+          Math.max(imgEl.naturalHeight, imgEl.height) * options.photo_scale
+        }"
+        data-pswp-caption="${imgEl.getAttribute("caption") || imgEl.alt}"
+        target="_blank">
+        ${imgEl.outerHTML}
+      </a>`;
+    });
+
+    // Initialize PhotoSwipe 5
+    var lightbox = new PhotoSwipeLightbox(options);
+
+    lightbox.init();
+  }
+
+  window.addEventListener("load", initPhotoSwipe);
+</script>
+</head>
+<body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<header class="site-header " role="banner">
+
+  <div class="wrapper">
+    <div class="site-header-inner">
+<span class="site-brand"><a class="site-brand-inner" rel="author" href="/">
+  <img class="site-favicon" title="Naming123's Blog" src="" onerror="this.style.display='none'">
+  Naming123's Blog
+</a>
+</span><nav class="site-nav">
+          <input type="checkbox" id="nav-trigger" class="nav-trigger">
+          <label for="nav-trigger">
+            <span class="menu-icon">
+              <svg viewbox="0 0 18 15" width="18px" height="15px">
+                <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"></path>
+              </svg>
+            </span>
+          </label>
+
+          <div class="trigger">
+<a class="page-link" href="/about.html">ABOUT</a><a class="page-link" href="/archives.html">ARCHIVES</a><a class="page-link" href="/categories.html">CATEGORIES</a><a class="page-link" href="/">HOME</a><a class="page-link" href="/tags.html">TAGS</a>
+
+
+
+
+
+
+
+
+
+<div class="page-link" style="display: inline;">
+
+
+
+<div id="google_translate_element" style="display: none;">
+</div>
+
+<div class="ct-language">
+  <ul class="list-unstyled ct-language-dropdown">
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="en">
+          
+          <img src="https://cdn.countryflags.com/thumbs/united-states-of-america/flag-400.png" title="English">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="fr">
+          
+          <img src="https://cdn.countryflags.com/thumbs/france/flag-400.png" title="French">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="zh-CN">
+          
+          <img src="https://cdn.countryflags.com/thumbs/china/flag-400.png" title="Chinese(Simple)">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ja">
+          
+          <img src="https://cdn.countryflags.com/thumbs/japan/flag-400.png" title="Japanese">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ko">
+          
+          <img src="https://cdn.countryflags.com/thumbs/south-korea/flag-400.png" title="Korean">
+          
+        </a>
+      </li>
+    
+      <li>
+        <a href="#" class="lang-select" data-lang="ru">
+          
+          <img src="https://cdn.countryflags.com/thumbs/russia/flag-400.png" title="Russian">
+          
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en',
+    autoDisplay: false,
+    layout: google.translate.TranslateElement.InlineLayout.VERTICAL
+  }, 'google_translate_element');
+
+  // Links to cross-origin destinations are unsafe
+  var gll = document.getElementsByClassName('goog-logo-link')[0];
+  if (gll) {
+    gll.setAttribute('rel', 'noopener');
+  }
+
+  function restoreLang() {
+    var iframe = document.getElementsByClassName('goog-te-banner-frame')[0];
+    if (!iframe) return;
+
+    var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+    var restore_el = innerDoc.getElementsByTagName("button");
+
+    for (var i = 0; i < restore_el.length; i++) {
+      if (restore_el[i].id.indexOf("restore") >= 0) {
+        restore_el[i].click();
+        var close_el = innerDoc.getElementsByClassName("goog-close-link");
+        close_el[0].click();
+        return;
+      }
+    }
+  }
+
+  function triggerHtmlEvent(element, eventName) {
+    var event;
+    if (document.createEvent) {
+      event = document.createEvent('HTMLEvents');
+      event.initEvent(eventName, true, true);
+      element.dispatchEvent(event);
+    } else {
+      event = document.createEventObject();
+      event.eventType = eventName;
+      element.fireEvent('on' + event.eventType, event);
+    }
+  }
+
+  var googleCombo = document.querySelector("select.goog-te-combo");
+  var langSelect = document.querySelector('.ct-language');
+  langSelect.addEventListener('click', function(event) {
+    if (!event.target) {
+      return;
+    }
+
+    var selected = document.querySelector('.ct-language .ct-language-selected');
+    if (selected) {
+      selected.classList.remove('ct-language-selected');
+    }
+
+    var target = event.target;
+    while (target && target !== langSelect ) {
+      if (target.matches('.lang-select')) {
+        break;
+      }
+      target = target.parentElement;
+    }
+
+    if (target && target.matches('.lang-select')) {
+      var lang = target.getAttribute('data-lang');
+      if (googleCombo.value == lang) {
+        restoreLang();
+      } else {
+        target.parentElement.classList.add('ct-language-selected');
+        googleCombo.value = lang;
+        triggerHtmlEvent(googleCombo, 'change');
+      }
+    }
+
+    event.preventDefault();
+  });
+}
+</script>
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+</div>
+</div>
+        </nav>
+</div>
+  </div>
+</header>
+
+<script>
+  function initHeader() {
+    var lastScrollY = getScrollPos().y;
+    var documentElement = document.documentElement;
+
+    function storeScrollData() {
+      var y = getScrollPos().y;var scrollStatus = "";
+
+      if (y <= 0) {
+        scrollStatus = "top";
+      } else if ((window.innerHeight + y) >= document.body.offsetHeight) {
+        scrollStatus = "bottom";
+      } else {
+        var isScrollDown = (y - lastScrollY > 0) ? true : false;
+        scrollStatus = isScrollDown ? "down" : "up";
+      }
+
+      lastScrollY = y;
+      documentElement.setAttribute("data-scroll-status", scrollStatus);
+    }
+
+    window.addEventListener('scroll', function(e) {
+      storeScrollData();
+    });
+
+    storeScrollData();
+  }
+  document.addEventListener('DOMContentLoaded', initHeader);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  function hashLocate(hashValue) {
+    hashValue = hashValue.replace(/^.*#h-/, '');
+    hashValue = decodeURIComponent(hashValue);
+    var element = document.getElementById(hashValue);
+
+    if (!element) {
+      return;
+    }
+
+    var header = document.querySelector('header.site-header');
+    var headerRect = header.getBoundingClientRect();
+    var headerTop = Math.floor(headerRect.top);
+    var headerHeight = Math.floor(headerRect.height);
+    var scrollPos = getScrollPos();
+    var offsetY = element.offsetTop - (headerTop + headerHeight + 20);
+
+    if (offsetY == scrollPos.y) {
+      return;
+    }
+
+    if (headerTop == 0  && offsetY > scrollPos.y) {
+      offsetY += headerHeight + 2;
+    } else if (headerTop < 0  && offsetY < scrollPos.y) {
+      offsetY -= headerHeight - 2;
+    }
+
+    smoothScrollTo(offsetY);
+  }
+
+  // The first event occurred
+  window.addEventListener('load', function(event) {
+    if (window.location.hash) {
+      hashLocate(window.location.hash);
+    }
+  });
+
+  // The first event occurred
+  window.addEventListener('click', function(event) {
+    if (event.target.tagName.toLowerCase() == 'a') {
+      hashLocate(event.target.getAttribute('href'));
+    }
+  });
+</script>
+<div class="theme-toggle">
+  <input type="checkbox" id="theme-switch">
+  <label for="theme-switch">
+    <div class="toggle"></div>
+    <div class="names">
+      <p class="light">Light</p>
+      <p class="dark">Dark</p>
+    </div>
+  </label>
+</div>
+
+
+
+
+<script>
+  (function() {
+    var sw = document.getElementById('theme-switch');
+    var html = document.getElementsByTagName('html')[0];
+    var nightModeOption = ('auto' || 'auto').toLowerCase();
+    var storage = nightModeOption === 'manual'
+        ? localStorage
+        : sessionStorage;
+    var themeData = loadThemeData();
+
+    function saveThemeData(data) {
+      storage.setItem('theme', JSON.stringify(data));
+    }
+
+    function loadThemeData() {
+      var data = storage.getItem('theme');
+      try {
+        data = JSON.parse(data ? data : '');
+      } catch(e) {
+        data = { nightShift: undefined, autoToggleAt: 0 };
+        saveThemeData(data);
+      }
+      return data;
+    }
+
+    function handleThemeToggle(nightShift) {
+      themeData.nightShift = nightShift;
+      saveThemeData(themeData);
+      html.dataset.theme = nightShift ? 'dark' : 'light';
+      setTimeout(function() {
+        sw.checked = nightShift ? true : false;
+        document.dispatchEvent(new Event('theme-changed'));
+      }, 50);
+    }
+
+    function autoThemeToggle() {
+      // Next time point of theme toggle
+      var now = new Date();
+      var toggleAt = new Date();
+      var hours = now.getHours();
+      var nightShift = hours >= 19 || hours <=7;
+
+      if (nightShift) {
+        if (hours > 7) {
+          toggleAt.setDate(toggleAt.getDate() + 1);
+        }
+        toggleAt.setHours(7);
+      } else {
+        toggleAt.setHours(19);
+      }
+
+      toggleAt.setMinutes(0);
+      toggleAt.setSeconds(0);
+      toggleAt.setMilliseconds(0)
+
+      var delay = toggleAt.getTime() - now.getTime();
+
+      // auto toggle theme mode
+      setTimeout(function() {
+        handleThemeToggle(!nightShift);
+      }, delay);
+
+      return {
+        nightShift: nightShift,
+        toggleAt: toggleAt.getTime()
+      };
+    }
+
+    // Listen the theme toggle event
+    sw.addEventListener('change', function(event) {
+      handleThemeToggle(event.target.checked);
+    });
+
+    if (nightModeOption == 'auto') {
+      var data = autoThemeToggle();
+
+      // Toggle theme by local setting
+      if (data.toggleAt > themeData.autoToggleAt) {
+        themeData.autoToggleAt = data.toggleAt;
+        handleThemeToggle(data.nightShift);
+      } else {
+        handleThemeToggle(themeData.nightShift);
+      }
+    } else if (nightModeOption == 'manual') {
+      handleThemeToggle(themeData.nightShift);
+    } else {
+      var nightShift = themeData.nightShift;
+      if (nightShift === undefined) {
+        nightShift = nightModeOption === 'on';
+      }
+      handleThemeToggle(nightShift);
+    }
+  })();
+</script>
+<div id="click-to-top" class="click-to-top">
+  <i class="fa fa-arrow-up"></i>
+</div>
+<script>
+  (function () {
+    const clickToTop = document.getElementById('click-to-top');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 100) {
+        clickToTop.classList.add('show')
+      }else {
+        clickToTop.classList.remove('show')
+      }
+    });
+    clickToTop.addEventListener('click', () => {
+      window.smoothScrollTo(0);
+    });
+  })();
+</script>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="framework">
+  <section class="main">
+
+     <div class="post">
+  <section>
+
+
+
+
+
+
+
+
+
+<header class="post-header">
+  <h1 class="post-title p-name" itemprop="name headline">Git Command</h1>
+  <h2 class="post-subtitle">Git 명령어 사전</h2>
+
+  <div class="post-meta">
+    <time class="dt-published" datetime="2025-08-06T00:00:00+00:00" itemprop="datePublished"><i class="fa fa-calendar"></i> Aug 06, 2025
+    </time>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <span class="post-reading-time left-vsplit"><i class="fa fa-clock-o"></i> About 5 mins</span>
+  </div>
+<div class="post-tags"><a class="post-tag" href="/tags.html#git">#git</a></div></header>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+    <div class="post-content e-content" itemprop="articleBody">
+
+      <p><img src="/assets/images/0806/0806-1.png" alt="banner"></p>
+
+<p>Git을 시작해보자
+전제:</p>
+<ol>
+  <li>github에서 협업할 레포링크를 받았다 (ex. https://github.com/naming123/JAVA_baekjoon.git)</li>
+  <li>git bash 등 git과 관련된 프로그램을 모두 다운받았다.</li>
+</ol>
+
+<h5 id="모든-명령어는-현상황-상태-확인---명령어를-위한-상태설정---명령어-실행----이전-상황-복원-으로-이해한다">모든 명령어는 현상황 상태 확인 -&gt; 명령어를 위한 상태설정 -&gt; 명령어 실행  (-&gt; 이전 상황 복원) 으로 이해한다.</h5>
+<p>각 번호의 명령어에서 []에 있는 것을 확인하면 된다.</p>
+
+<h3 id="1-git-init">1. git init</h3>
+<p>현재 폴더에 .git/을 만들고 로컬 Git 저장소로 초기화한다.
+커밋, 브랜치, 리모트 정보 등은 모두 .git/ 내부 메타데이터로 관리된다.
+=&gt; 작업할 공간에서 설정해야함 (이를 기준으로 repo와 연결됨)</p>
+
+<p><strong>[상태확인]</strong></p>
+
+<p>git status # 현재 로컬의 워킹디렉토리(staging area 포함) 경로 확인</p>
+
+<!-- - 로컬 저장소가 어떻게 움직이고 GitHub과 어떻게 연결됨?
+로컬: 워킹디렉토리(파일) ↔ Index(Staging Area) ↔ 로컬 커밋 히스토리
+
+원격(GitHub): origin 같은 리모트를 추가해 푸시/풀로 동기화
+
+한번더 한다고해서 어떤 변화가 생기는가?
+- 기존 기록/설정 안 날아감. (실수로 상위 폴더에서 git init 금지) -->
+
+<p><strong>[복원(제거)방법]</strong></p>
+
+<p>rm -rf .git  # Linux/Mac
+  rmdir /s .git  # Windows
+  =&gt; 그냥 .git폴더를 지우면 됨</p>
+
+<h3 id="2-git-remote-add-remote-repo주소">2. git remote add [remote] [repo주소]</h3>
+<p>(origin https://github.com/naming123/JAVA_baekjoon.git)</p>
+
+<p>github에서 연결관리는 remote를 통해 연결시킨다.
+=&gt; 내가 원하는 레포로 연결을 시켜줌</p>
+
+<p><strong>[상태확인]</strong></p>
+
+<p>git remote -v # 현재 로컬의 [remote]집합 확인
+  git remote add origin (https://github.com/naming123/JAVA_baekjoon.git) # [remote]로 [repo주소]와 연결</p>
+
+<p>현재 로컬 저장소에 원격 별칭 origin 추가
+이후 git fetch/pull/push origin 등 로컬과 원격 사이의 연결관계를 설정</p>
+
+<p>아래는 잘 사용하는 remote 이름을 정리해둔것이다. (말그대로 이름일뿐이다.)</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>리모트 이름</th>
+      <th>용도</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>origin</td>
+      <td>기본 작업 대상(내 포크 or 중앙 저장소)</td>
+    </tr>
+    <tr>
+      <td>upstream</td>
+      <td>원본 프로젝트(포크했을 때)</td>
+    </tr>
+    <tr>
+      <td>prod</td>
+      <td>배포용 저장소</td>
+    </tr>
+    <tr>
+      <td>backup</td>
+      <td>별도 백업 저장소</td>
+    </tr>
+    <tr>
+      <td>father</td>
+      <td>그냥 원본을 이렇게 부르기로 한 경우</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>[복원(제거)방법]</strong></p>
+
+<p>git remote rm [remote]   # origin의 remote 제거</p>
+
+<h3 id="3-git-checkoutbranch-branch">3. git checkout/branch [branch]</h3>
+<p>(origin main)</p>
+
+<p>내가 사용할 혹은 접근할 branch를 생성/이동(HEAD로 접근)/삭제한다.</p>
+
+<p><strong>[상태확인]</strong></p>
+
+<p>git fetch [remote] [branch] # 로컬의 상태정보를 원격의 상태로 최신화
+  git branch               # 현재 브랜치 확인 (default는 로컬 레포의 브랜치고, -r, -a로 원격도 확인할 수 있음)
+  =&gt;  git branch -r 인 경우는 원격브랜치(마지막 pull/fetch시점), git branch는 내 컴퓨터에서 만든 branch를 보여줌</p>
+
+<p>그 뒤 git checkout을 통해 해당 branch로 이동(HEAD 설정)하는 것이다.</p>
+
+<h5 id="remote-vs--branch">remote vs  branch</h5>
+
+<p>remote는 원격 레포에, branch는 그 레포안에서 관리되는 workflow들이라고 생각하면 된다.</p>
+
+<ol>
+  <li>remote를 통해 연결된 레포를 확인하고</li>
+  <li>그 안의 최신정보는 fetch로 (git fetch가 remote에 연결된 레포로 접속함)
+    =&gt; git fetch (remote ex. origin)으로 따로 연결가능</li>
+  <li>그 뒤 내가 들어갈 곳을 branch로 접속하면 된다.</li>
+</ol>
+
+<h5 id="git-checkout-vs-git-branch">git checkout vs git branch</h5>
+
+<p>HEAD로 인식하는가? vs 포인터 설정만 하는가?</p>
+
+<p>git branch feature/XXX # feature/XXX 브랜치를 생성하고 포인터 연결까지만 함
+  git checkout -b feature/XXX # feature/XXX 브랜치를 생성하고 그걸 HEAD로 인식 후 이동</p>
+
+<p>branch 관리에 대한 규칙도 있다.
+=&gt; 다음에 협업플젝관련으로 posting하겠다.</p>
+
+<p>cf) feature/XXX 브랜치를 새로 만들고 전환
+=&gt; 요즘 문법: git switch -c feature/XXX (안전하게 HEAD로 이동)
+(하지만 왜 쓰는지는 아직은 잘 모르겠다.)</p>
+
+<p><strong>[복원방법]</strong></p>
+
+<p>git branch -d [branch]  # 로컬 브랜치 삭제
+  git push origin –delete [branch]  # 원격 브랜치 삭제
+  (checkout으로는 삭제 불가능)</p>
+
+<h3 id="4-git-pullpush-remote-branch">4. git pull/push [remote] [branch]</h3>
+<p>원격레포의 해당 브랜치의 작업과정을 가져옴 (<strong>fetch + merge</strong>를 한 번에 수행)</p>
+
+<p><strong>[상태확인]</strong></p>
+
+<p>git remote -v # 현재 로컬의 [remote]집합 확인
+  git branch  # 현재 로컬의 [branch]집합 확인</p>
+
+<ol>
+  <li>
+    <p>git add .
+add를 하면 해당것들이 blob단위로 만들어짐</p>
+  </li>
+  <li>
+    <p>git commit -m “XXX 기능 구현 / 핫픽스 수정”
+<strong>Index 스냅샷을 영구 기록(커밋 객체)</strong>으로 만듦
+“스테이징으로 보낸다”가 아니라 스테이징된 것을 커밋으로 박제하는 단계
+(선택) 태그: 특정 커밋에 버전 달기</p>
+  </li>
+</ol>
+
+<p><strong>[복원방법]</strong></p>
+
+<p>git reflog               # log폴더의 텍스트로그를 따라 복원
+  git reset –hard HEAD@{1} # reflog로 이전 상태 복원
+  =&gt; HEAD를 기준으로 &lt;.git/objects/&gt;에 저장되어 있는 시계열로그
+  (완전 로컬전용으로 90일정도의 보존기간이 있다.)</p>
+
+<p>.# 또는</p>
+
+<p>git log # 커밋 그래프를 따라 추적
+  git reset –hard HEAD~1  # 마지막 커밋 취소
+  &lt;.git/objects/&gt;에 저장되어있는 log들을 git graph를 따라가며 탐지
+  =&gt; git flow에 끊긴 branch는 접근 불가</p>
+
+<h5 id="cf-만약-최신상태의-다른브랜치의-작업을-가져와야할-때">cf) 만약 최신상태의 다른(브랜치의) 작업을 가져와야할 때</h5>
+<p>(현재 만들고 있는 기능 중에 다른 브랜치의 작업을 봐야하거나(코드리뷰, 참고 등), merge할 때 충돌이 나서 해당 branch를 불러와야할 때)</p>
+
+<p><strong>[상태확인]</strong></p>
+
+<p>git stash list           # 현재 저장된 stash 목록 확인
+  git diff                 # 현재 변경사항 확인</p>
+
+<ol>
+  <li>stach 생성</li>
+</ol>
+
+<p>git stash             # 현재 작업 임시저장
+  git stash                # 현재 변경사항을 stash로 저장
+  git stash save “메시지”   # 메시지와 함께 stash 저장
+  git stash push -m “메시지” # 최신 문법</p>
+
+<ol>
+  <li>
+    <p>git pull/push [remote] [branch] 후 작업</p>
+  </li>
+  <li>
+    <p>git stash pop         # 다시 꺼내서 계속 작업</p>
+  </li>
+</ol>
+
+<h3 id="merge하는-법">merge하는 법</h3>
+
+<p>1) 로컬에서 바로 머지</p>
+
+<p>git switch dev
+  git merge feature/A       # feature/A를 dev branch에 설정
+  git push origin dev</p>
+
+<p>2) PR(Pull Request)로 코드리뷰/CI 거쳐 병합(권장)</p>
+
+<ol>
+  <li>git push origin feature/A</li>
+  <li>GitHub홈페이지에서 PR 생성 (base: develop, compare: feature/A)</li>
+  <li>리뷰/승인 → CI 통과 → Merge 버튼</li>
+</ol>
+
+<table>
+  <tbody>
+    <tr>
+      <td style="text-align: right">메인 배포 시나리오</td>
+    </tr>
+    <tr>
+      <td>develop 안정화 → develop → main PR → 태그 달고 배포</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="다음-cicd-배포와-연결">다음 CI/CD 배포와 연결</h3>
+
+<p>(optional) 이에 대한 자동화 검정기능 필요 (by devOPs엔지니어 with GithubAction)</p>
+
+<p>예:
+on: pull_request → CI
+on: push to main → CD(배포)</p>
+
+<hr>
+
+<p>참고자료</p>
+<ul>
+  <li>
+    <p><a href="https://velog.io/@bbbb_0221/Git-git%EC%9D%98-%EA%B8%B0%EC%B4%88-%EA%B0%9C%EB%85%90-%EA%B5%AC%EC%A1%B0-%EA%B0%84%EB%8B%A8-%EC%82%AC%EC%9A%A9%EB%B2%95">Git구조</a></p>
+  </li>
+  <li>
+    <p><a href="https://velog.io/@couchcoding/Git-%EC%8B%A4%EB%AC%B4%EC%97%90%EC%84%9C-%EC%82%AC%EC%9A%A9%ED%95%98%EB%8A%94-%EB%AA%85%EB%A0%B9%EC%96%B4%EB%93%A4%EC%9D%84-%EB%B9%A0%EB%A5%B4%EA%B2%8C-%EC%95%8C%EC%95%84%EB%B3%B4%EC%9E%90-1">Git명령어조합</a></p>
+  </li>
+</ul>
+
+
+    </div>
+
+</article>
+<div class="post-nav">
+<a class="previous" href="/project/2025/08/05/Project1-gitHub.html" title="GithubAction &amp;&amp; GithubProject">
+          <div>GithubAction &amp;&amp; GithubProject</div>
+        </a><a class="next" href="/project/2025/08/12/Project3-GitWorkflow.html" title="Git 작업영역">
+          <div>Git 작업영역</div>
+        </a>
+</div>
+<div class="post-related">
+      <div>Related Articles</div>
+      <ul>
+        <li class="">
+          <a class="post-link" href="/easycode/2025/08/14/%EB%B0%B1%EC%A4%805-%ED%98%95%EB%B3%80%ED%99%98%EB%B0%8F%EA%B8%B0%ED%83%80%EC%A1%B0%EC%9E%91.html" title="형변환 및 기타조작">
+            형변환 및 기타조작<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/java/2025/08/14/%EB%B0%B1%EC%A4%804-%EB%B0%B0%EC%97%B4.html" title="배열">
+            배열<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/easycode/2025/08/13/easy1-3-%EA%B0%9D%EC%B2%B4%EC%A7%80%ED%96%A5.html" title="객체지향과 메모리구조">
+            객체지향과 메모리구조<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+<li class="">
+          <a class="post-link" href="/project/2025/08/12/Project3-GitWorkflow.html" title="Git 작업영역">
+            Git 작업영역<span class="post-badges">
+  <span class="post-badge badge-top">TOP</span>
+  <span class="post-badge badge-new">NEW</span>
+</span>
+</a>
+        </li>
+</ul>
+    </div>
+<div class="post-comments"></div></section>
+</div>
+
+
+  </section>
+  <section class="sidebar" style="margin-left: 15px;">
+    <!-- Get sidebar items --><style type="text/css" media="screen">
+.post-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
+
+<div class="post-menu">
+  <div class="post-menu-title">TOC</div>
+  <div class="post-menu-content"></div>
+</div>
+
+<script>
+  function generateContent() {
+    var menu = document.querySelector(".post-menu");
+    var menuContent =  menu.querySelector(".post-menu-content");
+    var headings = document.querySelector(".post-content").querySelectorAll("h2, h3, h4, h5, h6");
+
+    // Hide menu when no headings
+    if (headings.length === 0) {
+      return menu.style.display = "none";
+    }
+
+    // Generate post menu
+    var menuHTML = '';
+    for (var i = 0; i < headings.length; i++) {
+      var h = headings[i];
+      menuHTML += (
+        '<li class="h-' + h.tagName.toLowerCase() + '">'
+        + '<a href="#h-' + h.getAttribute('id') + '">' + h.textContent + '</a></li>');
+    }
+
+    menuContent.innerHTML = '<ul>' + menuHTML + '</ul>';
+
+    // The header element
+    var header = document.querySelector('header.site-header');
+
+    function doMenuCollapse(index, over_items) {
+      var items = menuContent.firstChild.children;
+
+      if (over_items == undefined) {
+        over_items = 20;
+      }
+
+      if (items.length < over_items) {
+        return;
+      }
+
+      var activeItem = items[index];
+      var beginItem = activeItem
+      var endItem = activeItem
+      var beginIndex = index;
+      var endIndex = index + 1;
+      while (beginIndex >= 0
+        && !items[beginIndex].classList.contains('h-h2')) {
+        beginIndex -= 1;
+      }
+      while (endIndex < items.length
+        && !items[endIndex].classList.contains('h-h2')) {
+        endIndex += 1;
+      }
+      for (var i = 0; i < beginIndex; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+      for (var i = beginIndex + 1; i < endIndex; i++) {
+        item = items[i]
+        // if (!item.classList.contains('h-h2')) {
+          item.style.display = '';
+        // }
+      }
+      for (var i = endIndex; i < items.length; i++) {
+        item = items[i]
+        if (!item.classList.contains('h-h2')) {
+          item.style.display = 'none';
+        }
+      }
+    }
+
+    // Init menu collapsed
+    doMenuCollapse(-1);
+
+    // Active the menu item
+    window.addEventListener('scroll', function (event) {
+      var lastActive = menuContent.querySelector('.active');
+      var changed = true;
+      var activeIndex = -1;
+      for (var i = headings.length - 1; i >= 0; i--) {
+        var h = headings[i];
+        var headingRect = h.getBoundingClientRect();
+        var headerRect = header.getBoundingClientRect();
+        var headerTop = Math.floor(headerRect.top);
+        var headerHeight = Math.floor(headerRect.height);
+        var headerHeight = headerTop + headerHeight + 20;
+        if (headingRect.top <= headerHeight) {
+          var id = 'h-' + h.getAttribute('id');
+          var a = menuContent.querySelector('a[href="#' + id  + '"]');
+          var curActive = a.parentNode;
+          if (curActive) {
+            curActive.classList.add('active');
+            activeIndex = i;
+          }
+          if (lastActive == curActive) {
+            changed = false;
+          }
+          break;
+        }
+      }
+      if (changed) {
+        if (lastActive) {
+          lastActive.classList.remove('active');
+        }
+        doMenuCollapse(activeIndex);
+      }
+      event.preventDefault();
+    });
+  }
+  generateContent();
+</script>
+</section>
+</div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+    <div class="site-footer-inner">
+<div>Unpublished Work <span class="copyleft">©</span> 2017-2025 GitHub User</div>
+      <div>Powered by <a title="Jekyll is a simple, blog-aware, static site
+      generator." href="https://jekyllrb.com/">Jekyll</a> &amp; <a title="Yat, yet
+      another theme." href="https://github.com/jeffreytse/jekyll-theme-yat">Yat Theme</a>.</div>
+      <div class="footer-col rss-subscribe">Subscribe <a href="/feed.xml">via RSS</a>
+</div>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
