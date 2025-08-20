@@ -1,6 +1,6 @@
 ---
 layout: post
-title: [Project] Git Command
+title: Git Command
 subtitle: Git 명령어 사전
 categories: git
 tags: [git]
@@ -151,7 +151,7 @@ add를 하면 해당것들이 blob단위로 만들어짐
   git stash list           # 현재 저장된 stash 목록 확인
   git diff                 # 현재 변경사항 확인
 
-1.stach 생성
+1. stach 생성
 
   git stash             # 현재 작업 임시저장
   git stash                # 현재 변경사항을 stash로 저장
