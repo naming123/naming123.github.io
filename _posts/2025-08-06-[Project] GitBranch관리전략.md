@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Git Command
-subtitle: Git 명령어 사전
-categories: git
+title: Git branch
+subtitle: 협업 시 branch 관리
+categories: pull request
 tags: [git]
 ---
 
@@ -72,7 +72,7 @@ github에서 연결관리는 remote를 통해 연결시킨다.
 ### 3. git checkout/branch [branch] 
 (origin main)
 
-내가 사용할 혹은 접근할 branch를 생성/이동(HEAD로 접근)/삭제한다.
+원격레포의 해당 브랜치의 작업과정을 가져옴 (**fetch + merge**를 한 번에 수행)
 
 **[상태확인]**
 
@@ -105,20 +105,17 @@ cf) feature/XXX 브랜치를 새로 만들고 전환
 => 요즘 문법: git switch -c feature/XXX (안전하게 HEAD로 이동)
 (하지만 왜 쓰는지는 아직은 잘 모르겠다.)
 
-**[복원방법]**
-
-  git branch -d [branch]  # 로컬 브랜치 삭제
-  git push origin --delete [branch]  # 원격 브랜치 삭제
-  (checkout으로는 삭제 불가능)
 
 ### 4. git pull/push [remote] [branch] 
-원격레포의 해당 브랜치의 작업과정을 가져옴 (**fetch + merge**를 한 번에 수행)
 
 **[상태확인]**
 
   git remote -v # 현재 로컬의 [remote]집합 확인
   git branch  # 현재 로컬의 [branch]집합 확인
 
+
+0. 배경지식
+staging area와 같은 부분에 대해서 어떻게 가는지 이해해야됨
 
 1. git add .
 add를 하면 해당것들이 blob단위로 만들어짐
@@ -129,66 +126,104 @@ add를 하면 해당것들이 blob단위로 만들어짐
 (선택) 태그: 특정 커밋에 버전 달기
 
 
-**[복원방법]**
+### 만약 최신상태의 다른(브랜치의) 작업을 가져와야할 때
+(상황 설정을 한번 하고가자)
 
-  git reflog               # log폴더의 텍스트로그를 따라 복원
-  git reset --hard HEAD@{1} # reflog로 이전 상태 복원
-  => HEAD를 기준으로 <.git/objects/>에 저장되어 있는 시계열로그
-  (완전 로컬전용으로 90일정도의 보존기간이 있다.)
+1. git status vs git remote -v
 
-  .# 또는
+2. git stash             # 현재 작업 임시저장
+(이건 로컬에서만 저장되는 건가?)
 
-  git log # 커밋 그래프를 따라 추적
-  git reset --hard HEAD~1  # 마지막 커밋 취소
-  <.git/objects/>에 저장되어있는 log들을 git graph를 따라가며 탐지
-  => git flow에 끊긴 branch는 접근 불가
+3. git fetch origin      # 원격 저장소 최신 정보 가져오기 (코드 병합 X)
+이거 origin 생략해도 되는건가? 이건 remote로 움직이는 건가? 아니면 branch로 움직이는건가?
 
-##### cf) 만약 최신상태의 다른(브랜치의) 작업을 가져와야할 때
-(현재 만들고 있는 기능 중에 다른 브랜치의 작업을 봐야하거나(코드리뷰, 참고 등), merge할 때 충돌이 나서 해당 branch를 불러와야할 때)
+4. git checkout (another branch)     # 다른 브랜치로 전환
 
-**[상태확인]**
-
-  git stash list           # 현재 저장된 stash 목록 확인
-  git diff                 # 현재 변경사항 확인
-
-1.stach 생성
-
-  git stash             # 현재 작업 임시저장
-  git stash                # 현재 변경사항을 stash로 저장
-  git stash save "메시지"   # 메시지와 함께 stash 저장
-  git stash push -m "메시지" # 최신 문법
+- git switch develop                 # 이건 왜 쓰는 건지 잘 모르겠음
+  동일: git checkout develop
+  switch는 브랜치 전용, checkout은 브랜치/파일 둘 다 다룸
 
 
-2. git pull/push [remote] [branch] 후 작업
+5. git pull origin (another branch)  # 최신 반영
 
-3. git stash pop         # 다시 꺼내서 계속 작업
+<-- 다른거 코드 작업 -->
+
+6. git push origin (another branch)  # 사용
+
+7. git stash pop         # 다시 꺼내서 계속 작업
 
 
-### merge하는 법
+## merge하는 법
 
 1) 로컬에서 바로 머지
 
-  git switch dev
-  git merge feature/A       # feature/A를 dev branch에 설정
-  git push origin dev
+git switch develop
+git merge feature/A       # fast-forward or merge commit 생성
+git push origin develop
 
 2) PR(Pull Request)로 코드리뷰/CI 거쳐 병합(권장)
 
-  1. git push origin feature/A
-  2. GitHub홈페이지에서 PR 생성 (base: develop, compare: feature/A)
-  3. 리뷰/승인 → CI 통과 → Merge 버튼
+1. git push origin feature/A
+2. GitHub에서 PR 생성 (base: develop, compare: feature/A)
+3. 리뷰/승인 → CI 통과 → Merge 버튼
 
 | 메인 배포 시나리오:
 | develop 안정화 → develop → main PR → 태그 달고 배포
 
 ### 다음 CI/CD 배포와 연결
 
-(optional) 이에 대한 자동화 검정기능 필요 (by devOPs엔지니어 with GithubAction)
+CI/CD와 연결
+PR 생성/업데이트 시 자동으로 테스트/린트/빌드
+main/release/*에 머지되면 자동 배포 트리거
 
 예:
 on: pull_request → CI
 on: push to main → CD(배포)
 
+
+
+
+==========================
+
+원인: 원격(origin)에 feature/nnunetv2 브랜치가 없음(이름 다름/다른 원격에 있음/아직 안 올라감).
+
+바로 확인 → 해결 순서(그대로 복붙):
+
+원격에 브랜치 있는지 확인
+
+
+git remote -v
+git fetch --all --prune
+git ls-remote --heads origin | grep -i nnunet
+아무 것도 안 나오면 origin엔 없음.
+
+원격 브랜치 목록에서 직접 찾기
+
+
+git branch -r | grep -i feature
+# 예: origin/feature/nnUNetv2  처럼 대소문자/철자 확인
+찾은 이름으로 체크아웃
+
+
+git checkout -t origin/feature/nnUNetv2   # 실제 나온 이름으로
+만약 다른 원격(예: intern)에 있다면
+
+
+git fetch intern
+git branch -r | grep intern/feature
+git checkout -t intern/feature/nnunetv2
+로컬에만 있고 원격엔 아직 없는 경우(네가 만든 로컬 브랜치라면)
+
+
+git checkout feature/nnunetv2
+git push -u origin feature/nnunetv2
+그래도 못 찾으면 철자부터 재확인:
+
+feature/nnunetv2 vs feature/nnUNetv2 (대소문자)
+
+슬래시(/) 빠짐 여부 (feature\nnunetv2처럼 개행X)
+
+필요하면 git remote -v 출력 붙여줘. 정확한 원격 이름 기준으로 바로 명령어 써줄게
 
 
 ---

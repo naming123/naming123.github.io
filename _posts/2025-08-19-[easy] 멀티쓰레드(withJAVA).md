@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 프로세스와 스레드의 차이
+title: 멀티쓰레드
 subtitle:  ContextSwitching
 categories: easycode
 tags: [easycode]
@@ -15,7 +15,10 @@ JAVA의 가장 큰 장점은 운영체제 호환성과 더불어 멀티쓰레드
 
 Java는 멀티스레드와 **스레드풀(ExecutorService)**로 이 두 가지를 모두 활용할 수 있어, 수천~수만 개의 요청을 효율적으로 분배 처리할 수 있습니다.
 
+---
 
+참고자료
+- [쉬운코드) 백발백중 6강](https://www.youtube.com/watch?v=QmtYKZC0lMU&list=PLcXyemr8ZeoT-_8yBc_p_lVwRRqUaN8ET&index=6)
 
 
 
