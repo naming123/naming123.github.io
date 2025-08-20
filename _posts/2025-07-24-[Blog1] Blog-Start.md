@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Blog Start
+title: [Blog] Blog Start
 subtitle: 블로그 시작하는법
 categories: git
 tags: [git, Blog]

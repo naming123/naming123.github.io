@@ -1,6 +1,6 @@
 ---
 layout: post
-title: GithubAction && GithubProject
+title: [Project] GithubAction && GithubProject
 subtitle: 블로그 시작하는법
 categories: git
 tags: [git, Blog, Project]
