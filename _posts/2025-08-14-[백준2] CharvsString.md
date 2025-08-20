@@ -3,7 +3,7 @@ layout: post
 title: String vs char vs String[]
 subtitle: ByteStream은 어떻게 처리하는가에 대하여
 categories: JAVA
-tags: [JAVA]
+tags: [JAVA, Baekjoon]
 ---
 
 ![banner](/assets/images/0814/(char)banner.jpg)

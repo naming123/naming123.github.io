@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Git Command
+title: [Project] Git Command
 subtitle: Git 명령어 사전
 categories: git
 tags: [git]
