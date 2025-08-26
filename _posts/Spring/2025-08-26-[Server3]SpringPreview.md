@@ -9,7 +9,7 @@ tags: [Spring, Backend]
 
 #### <span style="background-color:yellow">바닐라 자바의 문제점</span>
 바닐라 자바로 계좌이체서비스를 구현해보자
-![계좌이체서비스](/assets/images/0826/exchange.jpg)
+![계좌이체서비스](/assets/images/0826/exchange.png)
 1. 은행 계좌 A, B를 생성하고 (Account 클래스)
 2. 계좌간 송금 서비스 기능 구현 후, (TransferService 클래스)
 3. A가 B에게 200을 준다. (Main 클래스)
@@ -131,7 +131,7 @@ public class TransferService {
 
 스프링 생태계는 모듈과 프로젝트로 구성되어있다.
 (Spring boot는 Spring의 한 프로젝트일 뿐이다.)
-![토스채용조건](/assets/images/0826/traffic.jpg)
+![토스채용조건](/assets/images/0826/traffic.png)
 스프링은 모듈은 자바의 라이브러리, 프로젝트는 스프링에서 특정기능만 담당하는 애플리케이션으로 보면 된다.
 
 ~~~
@@ -207,6 +207,7 @@ public class TransferService {
 ---
 참고자료
 - [공식문서](https://spring.io/projects)
+- [스프링에대해서](https://www.codestates.com/blog/content/%EC%8A%A4%ED%94%84%EB%A7%81-%EC%8A%A4%ED%94%84%EB%A7%81%EB%B6%80%ED%8A%B8)
 - [스프링생태계](https://ch-tech.tistory.com/17)
 - [스프링구성요소1](https://devscb.tistory.com/119)
 - [스프링구성요소2](https://ajdxjdrnfld.tistory.com/9)
