@@ -13,6 +13,7 @@ tags: [Spring, Backend]
 1. 은행 계좌 A, B를 생성하고 (Account 클래스)
 2. 계좌간 송금 서비스 기능 구현 후, (TransferService 클래스)
 3. A가 B에게 200을 준다. (Main 클래스)
+
 ~~~
 public class Account {
     private String id;
@@ -46,6 +47,7 @@ public class Main {
 }
 
 ~~~
+
 => 지금은 A, B 2개의 통장만 사용하고 있기 때문에 불편함을 크게 못 느끼지만 
 토스같은 대규모 트래픽을 다루는 서버에서 이걸 지원했다면 new 생성/삭제 지옥이 나타날 것이다. 
 <br>
