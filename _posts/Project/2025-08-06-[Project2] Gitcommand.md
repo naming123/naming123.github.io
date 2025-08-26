@@ -35,7 +35,7 @@ Git을 시작해보자
 
 **[복원(제거)방법]**
 
-  rm -rf .git  # Linux/Mac
+> rm -rf .git  # Linux/Mac
   rmdir /s .git  # Windows
   => 그냥 .git폴더를 지우면 됨
 
@@ -48,7 +48,7 @@ github에서 연결관리는 remote를 통해 연결시킨다.
 
 **[상태확인]**
 
-  git remote -v # 현재 로컬의 [remote]집합 확인
+> git remote -v # 현재 로컬의 [remote]집합 확인
   git remote add origin (https://github.com/naming123/JAVA_baekjoon.git) # [remote]로 [repo주소]와 연결
 
 현재 로컬 저장소에 원격 별칭 origin 추가
@@ -76,7 +76,7 @@ github에서 연결관리는 remote를 통해 연결시킨다.
 
 **[상태확인]**
 
-  git fetch [remote] [branch] # 로컬의 상태정보를 원격의 상태로 최신화
+> git fetch [remote] [branch] # 로컬의 상태정보를 원격의 상태로 최신화
   git branch               # 현재 브랜치 확인 (default는 로컬 레포의 브랜치고, -r, -a로 원격도 확인할 수 있음)
   =>  git branch -r 인 경우는 원격브랜치(마지막 pull/fetch시점), git branch는 내 컴퓨터에서 만든 branch를 보여줌
 
@@ -86,7 +86,7 @@ github에서 연결관리는 remote를 통해 연결시킨다.
 
 remote는 원격 레포에, branch는 그 레포안에서 관리되는 workflow들이라고 생각하면 된다. 
 
-  1. remote를 통해 연결된 레포를 확인하고 
+> 1. remote를 통해 연결된 레포를 확인하고 
   2. 그 안의 최신정보는 fetch로 (git fetch가 remote에 연결된 레포로 접속함)
     => git fetch (remote ex. origin)으로 따로 연결가능
   3. 그 뒤 내가 들어갈 곳을 branch로 접속하면 된다.
@@ -95,7 +95,7 @@ remote는 원격 레포에, branch는 그 레포안에서 관리되는 workflow�
 
 HEAD로 인식하는가? vs 포인터 설정만 하는가?
 
-  git branch feature/XXX # feature/XXX 브랜치를 생성하고 포인터 연결까지만 함
+> git branch feature/XXX # feature/XXX 브랜치를 생성하고 포인터 연결까지만 함
   git checkout -b feature/XXX # feature/XXX 브랜치를 생성하고 그걸 HEAD로 인식 후 이동
 
 branch 관리에 대한 규칙도 있다.
@@ -107,7 +107,7 @@ cf) feature/XXX 브랜치를 새로 만들고 전환
 
 **[복원방법]**
 
-  git branch -d [branch]  # 로컬 브랜치 삭제
+> git branch -d [branch]  # 로컬 브랜치 삭제
   git push origin --delete [branch]  # 원격 브랜치 삭제
   (checkout으로는 삭제 불가능)
 
@@ -116,7 +116,7 @@ cf) feature/XXX 브랜치를 새로 만들고 전환
 
 **[상태확인]**
 
-  git remote -v # 현재 로컬의 [remote]집합 확인
+> git remote -v # 현재 로컬의 [remote]집합 확인
   git branch  # 현재 로컬의 [branch]집합 확인
 
 
@@ -131,14 +131,14 @@ add를 하면 해당것들이 blob단위로 만들어짐
 
 **[복원방법]**
 
-  git reflog               # log폴더의 텍스트로그를 따라 복원
+> git reflog               # log폴더의 텍스트로그를 따라 복원
   git reset --hard HEAD@{1} # reflog로 이전 상태 복원
   => HEAD를 기준으로 <.git/objects/>에 저장되어 있는 시계열로그
   (완전 로컬전용으로 90일정도의 보존기간이 있다.)
 
-  .# 또는
-
-  git log # 커밋 그래프를 따라 추적
+또는
+  
+> git log # 커밋 그래프를 따라 추적
   git reset --hard HEAD~1  # 마지막 커밋 취소
   <.git/objects/>에 저장되어있는 log들을 git graph를 따라가며 탐지
   => git flow에 끊긴 branch는 접근 불가
@@ -148,12 +148,12 @@ add를 하면 해당것들이 blob단위로 만들어짐
 
 **[상태확인]**
 
-  git stash list           # 현재 저장된 stash 목록 확인
+> git stash list           # 현재 저장된 stash 목록 확인
   git diff                 # 현재 변경사항 확인
 
 1. stach 생성
 
-  git stash             # 현재 작업 임시저장
+> git stash             # 현재 작업 임시저장
   git stash                # 현재 변경사항을 stash로 저장
   git stash save "메시지"   # 메시지와 함께 stash 저장
   git stash push -m "메시지" # 최신 문법
@@ -168,26 +168,26 @@ add를 하면 해당것들이 blob단위로 만들어짐
 
 1) 로컬에서 바로 머지
 
-  git switch dev
+> git switch dev
   git merge feature/A       # feature/A를 dev branch에 설정
   git push origin dev
 
 2) PR(Pull Request)로 코드리뷰/CI 거쳐 병합(권장)
 
-  1. git push origin feature/A
+> 1. git push origin feature/A
   2. GitHub홈페이지에서 PR 생성 (base: develop, compare: feature/A)
   3. 리뷰/승인 → CI 통과 → Merge 버튼
 
 | 메인 배포 시나리오:
-| develop 안정화 → develop → main PR → 태그 달고 배포
+> develop 안정화 → develop → main PR → 태그 달고 배포
 
 ### 다음 CI/CD 배포와 연결
 
 (optional) 이에 대한 자동화 검정기능 필요 (by devOPs엔지니어 with GithubAction)
 
 예:
-on: pull_request → CI
-on: push to main → CD(배포)
+    on: pull_request → CI
+    on: push to main → CD(배포)
 
 
 

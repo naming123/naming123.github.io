@@ -19,18 +19,20 @@ Git 명령어를 이해할 때,
 
 1. 깃 푸쉬 (Local -> Remote)
 
-    git add .
+> git add .
     git commit -m "my name is Peter"
     git push orign main
 
 2. 깃 풀 (Remote -> Local)
 
-    git fetch
+>    git fetch
     원격에서 최신 이력을 가져오되, 내 코드에는 손대지 않는다.
     (브랜치에 대한 최신이력 업데이트)
-    git merge
+
+>    git merge
     그 브랜치의 이력들을 내 코드에 업데이트한다.
-    git pull = git fetch + git merge
+
+>    git pull = git fetch + git merge
 
 
 각각 위 설명에서 "어떤 영역"을 중심으로 나타냈으며
