@@ -14,7 +14,7 @@ tags: [Spring, Backend]
 2. 계좌간 송금 서비스 기능 구현 후, (TransferService 클래스)
 3. A가 B에게 200을 준다. (Main 클래스)
 
-~~~
+~~~java
 public class Account {
     private String id;
     private int balance;
@@ -57,7 +57,7 @@ public class Main {
 공통 기능 중복에 대한 효율 문제가 대두되었고 **EJB**가 만들어졌다.
 => 대규모 엔터프라이즈 시스템을 “표준화된 방법”으로 만들자는 의도로 만들어졌었다.
 
-~~~
+~~~java
 // Remote Interface
 public interface TransferService extends javax.ejb.EJBObject {
     void transferMoney(String from, String to, int amount) throws RemoteException;
@@ -95,7 +95,7 @@ public class TransferServiceBean implements javax.ejb.SessionBean {
 
 스프링의 핵심은 **Bean 등록**이다.
 
-~~~
+~~~java
 @Service
 public class TransferService {
 
