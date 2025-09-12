@@ -1,10 +1,13 @@
 ---
 layout: post
-title: 웹 vs 앱
+title: CORS
 subtitle: PWA에 관해서
 categories: 탐구
 tags: [JAVA, Backend]
 ---
+
+
+![banner](/assets/images/0912/image.jpg)
 
 세션과 쿠키에 관리방법
 
@@ -17,8 +20,7 @@ tags: [JAVA, Backend]
 ---
 
 참고자료
-- [얄코쿠키](https://www.youtube.com/watch?v=OpoVuwxGRDI)
-- [얄코JWT](https://www.youtube.com/watch?v=1QiOXWEbqYQ)
+- [sxungchxn.dev](https://velog.io/@seungchan__y/CORS-%EC%97%90%EB%9F%AC%EC%99%80-%ED%95%B4%EA%B2%B0%EB%B2%95)
 
 
 
